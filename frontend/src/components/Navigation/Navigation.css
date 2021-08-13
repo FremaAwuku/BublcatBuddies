@@ -5,3 +5,7 @@
 form{
     padding: 10px;
 }
+button{
+   box-sizing: border-box;
+   
+}
