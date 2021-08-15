@@ -1,0 +1,33 @@
+
+*{
+  background-color: blueviolet;
+}
+.container{
+    display: grid;
+    grid-auto-flow: column;
+
+}
+@media only screen and (max-width: 850px)  {
+    .container{
+        grid-auto-flow: row;
+    }
+
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+    padding: 4px;
+    font-size: 16px;
+    background-color: chocolate;
+    color: white;
+    
+}
+/* @media screen and (max-width: 730px) {
+    /* Hide the header search input field. */
+    /* Hide the "Boards" text, but leave the boards icon. */
+    /* nav{
+
+    }
+
+  } */
