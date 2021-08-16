@@ -13,6 +13,11 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      firstName: {
+        allowNull: false,
+        type: Sequelize.STRING(20),
+        allowNull: false
+      },
       email: {
         type: Sequelize.STRING(256),
         allowNull: false,
@@ -21,6 +26,10 @@ module.exports = {
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
+      },
+      profileImgUrl: {
+        allowNull: false,
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
