@@ -6,22 +6,24 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [
       {
-        email: 'demo@user.io',
+
         username: 'Demo-lition',
+        firstName:'DemoUser',
+        email: 'demo@user.io',
         hashedPassword: bcrypt.hashSync('password'),
+        profileImgUrl:"https://www.chicagotribune.com/resizer/b4pDF7Lz95sEugm9LA7ddvXDtT4=/1200x0/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/CNDQDU4UHNCSRDAZODSCCXQBIU.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
+
+
     ], {});
   },
+  // down: (queryInterface, Sequelize) => {
+
+
+  //   return queryInterface.bulkDelete('Users', null, {});
+
 
   down: (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
@@ -30,13 +32,3 @@ module.exports = {
     }, {});
   }
 };
-
-  down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
-  };

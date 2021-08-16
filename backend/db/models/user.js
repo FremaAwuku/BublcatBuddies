@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   },
   profileImgUrl: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
 },

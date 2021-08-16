@@ -35,6 +35,9 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
+          <a href="/">
+            <img src={user.profileImgUrl}/>
+          </a>
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
