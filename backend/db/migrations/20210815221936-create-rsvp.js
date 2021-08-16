@@ -10,11 +10,17 @@ module.exports = {
       },
       eventId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model:'Events'
+        }
       },
       userId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model:'Users'
+        }
       },
       interested: {
         type: Sequelize.BOOLEAN

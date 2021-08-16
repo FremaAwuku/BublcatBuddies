@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING
   }, {});
   Event.associate = function(models) {
-    // associations can be defined here
+    Event.belongsTo(models.User,{foreignKey:'hostId'})
+    Event.belongsToMany(models.User,{ through:'Rsvps',foreignKey:'eventId', otherKey:'userId'})
   };
   return Event;
 };

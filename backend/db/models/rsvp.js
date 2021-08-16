@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, {});
   Rsvp.associate = function(models) {
-    // associations can be defined here
+    
   };
   return Rsvp;
 };
