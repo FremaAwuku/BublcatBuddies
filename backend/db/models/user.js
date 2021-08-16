@@ -93,7 +93,9 @@ User.signup = async function ({ username, email, password }) {
 };
 
 User.associate = function(models) {
-   User.belong
+   User.belongsToMany(models.User,{as: 'buddies', through:'BublcatBuddies',foreignKey:'userId', otherKey:'buddyId'})
+   User.hasMany(models.Event,{foreignKey:'hostId'})
+   User.belongsToMany(models.Event,{ through:'Rsvps',foreignKey:'userId', otherKey:'eventId'})
   };
   return User;
 };

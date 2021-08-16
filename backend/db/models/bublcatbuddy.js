@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     buddyId: DataTypes.INTEGER
   }, {});
   BublcatBuddy.associate = function(models) {
-    // associations can be defined here
+    BublcatBuddy.belongsToMany(models.userId, {through:"BublcatBuddies", foreignKey:'userId', otherKey:'buddyId'})
   };
   return BublcatBuddy;
 };
