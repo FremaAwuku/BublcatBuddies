@@ -32,7 +32,7 @@ module.exports = {
       },
       address: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(255)
       },
       eventDate: {
         allowNull: false,
