@@ -91,3 +91,14 @@ profileImgUrl: 'https://www.globaltimes.cn/Portals/0/attachment/2018/2018-01-18/
 createdAt: new Date(),
 updatedAt: new Date()
 }
+
+  eventName: "CATlanta Meet-Up",
+  description: "Recurring Atlanta Cat Meet-up group ",
+  eventImageUrl: 'https://scontent-atl3-1.xx.fbcdn.net/v/t1.18169-9/18010024_1438279462899105_2901457057159399457_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=9267fe&_nc_ohc=mQvagUx_ERIAX9SkLna&_nc_ht=scontent-atl3-1.xx&oh=c3eafe6d49515e472f9a6edad73c5fc0&oe=61403A81',
+  hostId: 6,
+  private: false,
+  address: "729 Freedom Park Atlanta,GA, 30321",
+  createdAt: new Date(),
+  updatedAt: new Date()
+
+      }
