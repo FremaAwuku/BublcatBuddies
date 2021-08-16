@@ -9,22 +9,36 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       eventName: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(255)
       },
       description: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       eventImageUrl: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       hostId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model:{
+            tableName 
+          }
+        }
       },
       private: {
         type: Sequelize.BOOLEAN
       },
       address: {
+        allowNull: false,
         type: Sequelize.STRING
+      },
+      eventDate: {
+        allowNull: false,
+        type: Sequelize.DATEONLY,
       },
       createdAt: {
         allowNull: false,

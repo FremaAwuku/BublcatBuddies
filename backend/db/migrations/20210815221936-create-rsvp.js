@@ -9,10 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       eventId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       userId: {
+        allowNull: false,
         type: Sequelize.INTEGER
+      },
+      interested: {
+        type: Sequelize.BOOLEAN
+      },
+      confirmed: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

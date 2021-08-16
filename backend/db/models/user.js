@@ -15,6 +15,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
   },
+  firstName: {
+    type: DataTypes.STRING(20),
+    allowNull: false,
+    validate: {
+      len: [0, 20]
+    },
+  },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -28,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
     validate: {
       len: [60, 60]
     },
+  },
+  profileImgUrl: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
 },
 {
@@ -82,7 +93,7 @@ User.signup = async function ({ username, email, password }) {
 };
 
 User.associate = function(models) {
-    // associations can be defined here
+   User.belong
   };
   return User;
 };
