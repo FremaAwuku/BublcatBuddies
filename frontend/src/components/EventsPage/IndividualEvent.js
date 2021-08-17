@@ -5,7 +5,7 @@ const IndividualEvent = ({event})=> {
 
 
 
-    if(!event.private){
+    if(!event.isPrivate){
         return(
         <>
             <span>

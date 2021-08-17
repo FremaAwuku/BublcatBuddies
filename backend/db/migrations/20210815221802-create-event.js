@@ -27,7 +27,7 @@ module.exports = {
           model:'Users'
         }
       },
-      private: {
+      isPrivate: {
         type: Sequelize.BOOLEAN
       },
       address: {
