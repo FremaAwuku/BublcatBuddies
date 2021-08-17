@@ -45,7 +45,7 @@ function LoginForm() {
         />
       </label>
       <button type="submit">
-        <i class="fas fa-paw"></i>
+        <i className="fas fa-paw"></i>
           Log In</button>
     </form>
   );
