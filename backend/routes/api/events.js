@@ -68,7 +68,7 @@ router.post(
             description,
             eventImageUrl,
             hostId,
-            private,
+            isPrivate,
             address,
             eventDate
         }= req.body
@@ -78,7 +78,7 @@ router.post(
             description,
             eventImageUrl,
             hostId,
-            private,
+            isPrivate,
             address,
             eventDate
         })
@@ -108,7 +108,7 @@ router.post(
         description,
         eventImageUrl,
         hostId,
-        private,
+        isPrivate,
         address,
         eventDate
     }= req.body
@@ -118,7 +118,7 @@ router.post(
     description,
     eventImageUrl,
     hostId,
-    private,
+    isPrivate,
     address,
     eventDate})
      return res.json(event)

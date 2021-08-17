@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.INTEGER,
       allowNull: false,
     },
-    private: DataTypes.BOOLEAN,
+    isPrivate: DataTypes.BOOLEAN,
     address: {
       allowNull: false,
       type: DataTypes.STRING(255)

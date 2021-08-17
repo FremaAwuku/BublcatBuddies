@@ -31,7 +31,7 @@ function App() {
             <Route path="/signup">
               <SignupFormPage />
             </Route>
-            <Route path="/events">
+            <Route exact path="/events">
               <EventsPage/>
             </Route>
             <Route path="/events/add">
