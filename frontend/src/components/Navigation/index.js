@@ -32,8 +32,7 @@ function Navigation({ isLoaded }){
         <NavLink to="/events">Events</NavLink>
       </li>
       <li>
-        <NavLink exact to="/bublcat-buddies">Find Bublcat Buddies</NavLink>
-        {isLoaded && sessionLinks}
+        <NavLink to="/bublcat-buddies">Find Bublcat Buddies</NavLink>
       </li>
     </ul>
   );

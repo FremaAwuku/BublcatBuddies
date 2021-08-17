@@ -11,7 +11,8 @@ const db = require('../../db/models');
 router.get(
     '/',
     asyncHandler(async(req,res)=>{
-        const events = await db.Event.findAll()
+        const events = await db.Event.findAll({include:{ model:db.Rsvp,
+            model:db.User}})
         return res.json(events)
     })
 )

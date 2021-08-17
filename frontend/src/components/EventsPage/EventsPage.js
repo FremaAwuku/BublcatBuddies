@@ -22,9 +22,14 @@ return(
         <main>
             <h1> Become a Bublcat Buddy Today</h1>
         </main>
+        {/* make sure to include  */}
+        <form method="get" action="/events/add">
+            <button>Add An Event </button>
+        </form>
+        {events.map((event)=>
+        <IndividualEvent key={event.id} event={event}/>
 
-        <IndividualEvent event={events}/>
-         
+         ) }
 
     </div>
 
