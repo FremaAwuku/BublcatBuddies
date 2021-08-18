@@ -10,7 +10,7 @@ module.exports = {
   hostId: 2,
   isPrivate: false,
   address: "3229 Piedmont Park Atlanta,GA, 30311",
-  eventDate: "2021-08-31",
+  eventDate: '2021-09-02',
   createdAt: new Date(),
   updatedAt: new Date()
 
@@ -21,7 +21,7 @@ module.exports = {
     hostId: 6,
     isPrivate: false,
     address: "729 Freedom Park Atlanta,GA, 30321",
-    eventDate: "2021-08-23",
+    eventDate: '2021-08-23',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -33,7 +33,7 @@ module.exports = {
   hostId: 5,
   isPrivate: true,
   address: "729 Freedom Park Atlanta,GA, 30321",
-  eventDate: "2021-09-01",
+  eventDate: '2021-10-20',
   createdAt: new Date(),
   updatedAt: new Date()
 },
@@ -44,7 +44,7 @@ eventImageUrl: 'http://images6.fanpop.com/image/photos/41000000/Reading-have-fun
 hostId: 7,
 isPrivate: true,
 address: "640 Lenox Rd Buckhead,GA 30325",
-eventDate: "2021-07-31",
+eventDate: '2021-08-30',
 createdAt: new Date(),
 updatedAt: new Date()
 },
