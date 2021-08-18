@@ -1,15 +1,18 @@
-
-
+// import { useEffect } from "react"
+import SingleEventPage from "../SingleEventPage"
 const IndividualEvent = ({event})=> {
 
-
+// useEffect(()=>{
+// console.log(event.id)
+// },[event])
 
 
     if(!event.isPrivate){
         return(
         <>
             <span>
-            <a href={`/events/${event}`}>
+            <a href={`/events/${event.id}`}>
+                
                 <img src={event.eventImageUrl} alt="event visual description"></img>
             </a>
             <h2>{event.eventName}</h2>

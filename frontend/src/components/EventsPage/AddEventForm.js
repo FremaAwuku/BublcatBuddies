@@ -25,9 +25,10 @@ const AddEventForm = () =>{
 
     useEffect(()=>{
         const errors = []
-        let current = new Date
+        let current = new Date()
         let currentDate = `${current.getFullYear()}-0${current.getMonth() + 1}-${current.getDate()}`
-        console.log(date)
+
+
 
         if(name.length < 4)errors.push("Name must be longer than 4 character")
         if(name.length > 30 )errors.push("Name must be less than 30 Character")
@@ -50,7 +51,7 @@ const AddEventForm = () =>{
         const newEvent = await dispatch(createEvent(payload))
 
         if(newEvent){
-            history.push(`/events/${newEvent.id}`)
+            history.push(`/events`)
         }
 
     }

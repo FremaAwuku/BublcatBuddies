@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf"
+
 const initialState = {}
 const LOAD = 'event/LOAD'
 const LOAD_ONE = 'event/LOAD_ONE'
@@ -47,23 +49,61 @@ export const getOneEvent = (eventId) => async dispatch =>{
     }
 }
 
+
 export const createEvent = (payload) => async dispatch =>{
-    const response = await fetch(`/api/events`, {
+    const {
+        name,
+        description,
+        image,
+        hostId,
+        isPrivate,
+        address,
+        date
+    }= payload
+
+    const data = {
+        eventName:name,
+        description,
+        eventImageUrl:image,
+        hostId,
+        isPrivate,
+        address,
+        eventDate:date
+    }
+    const response = await csrfFetch(`/api/events`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
+        body: JSON.stringify(data)
       });
       if(response.ok){
         const event = await response.json()
         dispatch(addOneEvent(event))
+        return event
     }
 
 }
 export const editEvent = (payload) => async dispatch => {
-    const response = await fetch(`/api/events/${payload.id}`, {
+    const {
+        name,
+        description,
+        image,
+        hostId,
+        isPrivate,
+        address,
+        date
+    }= payload
+
+    const data = {
+        eventName:name,
+        description,
+        eventImageUrl:image,
+        hostId,
+        isPrivate,
+        address,
+        eventDate:date
+    }
+    const response = await csrfFetch(`/api/events/${payload.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
+        body: JSON.stringify(data)
       });
       if(response.ok){
         const event = await response.json()
@@ -82,41 +122,42 @@ export const editEvent = (payload) => async dispatch => {
 // }
 
 const eventReducer = (state= initialState, action) =>{
-
+        let newState
     switch(action.type){
-        case LOAD:{
-            const newState = {...state};
+        case LOAD:
+             newState = {...state};
             action.events.forEach(event => {
                 newState[event.id] = event
             })
             return newState
-        }
-        case LOAD_ONE:{
-            const newState = {...state};
+
+        case LOAD_ONE:
+             newState = {...state};
             newState[action.event.id] = action.event
-            return newState
-        }
-        case ADD_EVENT:{
+          return newState
+
+        case ADD_EVENT:
+
             if(!state[action.event.id]){
-                const newState ={
+                 newState ={
                     ...state,
                     [action.event.id]: action.event
                 }
                 return newState
-            }
+            }else
             return {
                 ...state,
                 [action.event.id]:{
                     ...state[action.event.id],
-                    ...action.pokemon
+                    ...action.event
                 }
             }
-        }
-        case REMOVE_EVENT:{
-            const newState = {...state};
+
+        case REMOVE_EVENT:
+             newState = {...state};
             delete newState[action.event.id]
             return newState
-        }
+
         default:
             return state;
     }

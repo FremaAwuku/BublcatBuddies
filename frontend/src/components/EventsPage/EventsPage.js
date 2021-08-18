@@ -10,7 +10,15 @@ import styles from "./EventsPage.module.css"
 
 const EventsPage = () =>{
     const dispatch = useDispatch()
-    const events = useSelector(state =>Object.values(state.event))
+    const events = useSelector(state =>Object.values(state.events))
+    const sessionUser = useSelector(state => state.session.user);
+    let addEventButton;
+    if(sessionUser){
+        addEventButton = (
+        <form method="get" action="/events/add">
+            <button>Add An Event </button>
+        </form>)
+                }
 
     useEffect(()=>{
         dispatch(getEvents())
@@ -22,11 +30,10 @@ return(
         <main>
             <h1> Become a Bublcat Buddy Today</h1>
         </main>
-        {/* make sure to include  */}
-        <form method="get" action="/events/add">
-            <button>Add An Event </button>
-        </form>
-        {events.map((event)=>
+        {addEventButton}
+
+
+        {events?.map((event)=>
         <IndividualEvent key={event.id} event={event}/>
 
          ) }
