@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -11,13 +11,16 @@ import Navigation from "./components/Navigation";
 import EventsPage  from "./components/EventsPage/EventsPage";
 import TestComponent from "./components/TestComponent";
 import AddEventForm from "./components/EventsPage/AddEventForm";
-
+import SingleEventPage from "./components/SingleEventPage";
+ import { getEvents } from "./store/event";
 
 function App() {
+
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(getEvents())
   }, [dispatch]);
 
   return (
@@ -36,6 +39,9 @@ function App() {
             </Route>
             <Route path="/events/add">
               <AddEventForm/>
+            </Route>
+            <Route path={`/events/:eventId`}>
+              <SingleEventPage/>
             </Route>
           </Switch>
         )}
