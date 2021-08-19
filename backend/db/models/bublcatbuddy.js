@@ -14,4 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     BublcatBuddy.belongsToMany(models.User, {through:"BublcatBuddies", foreignKey:'userId', otherKey:'buddyId'})
   };
   return BublcatBuddy;
-};
+
+
+}
