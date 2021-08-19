@@ -13,14 +13,16 @@ import TestComponent from "./components/TestComponent";
 import AddEventForm from "./components/EventsPage/AddEventForm";
 import SingleEventPage from "./components/SingleEventPage";
  import { getEvents } from "./store/event";
+import EditEventForm from "./components/EventsPage/EditEventForm";
 
 function App() {
 
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(getEvents())
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+
   }, [dispatch]);
 
   return (
@@ -40,8 +42,11 @@ function App() {
             <Route path="/events/add">
               <AddEventForm/>
             </Route>
-            <Route path={`/events/:eventId`}>
+            <Route exact path="/events/:eventId">
               <SingleEventPage/>
+            </Route>
+            <Route path="/events/:eventId/edit">
+              <EditEventForm/>
             </Route>
           </Switch>
         )}

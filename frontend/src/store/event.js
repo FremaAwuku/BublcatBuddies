@@ -89,7 +89,9 @@ export const editEvent = (payload) => async dispatch => {
         hostId,
         isPrivate,
         address,
-        date
+        date,
+        eventId
+
     }= payload
 
     const data = {
@@ -101,7 +103,7 @@ export const editEvent = (payload) => async dispatch => {
         address,
         eventDate:date
     }
-    const response = await csrfFetch(`/api/events/${payload.id}`, {
+    const response = await csrfFetch(`/api/events/${eventId}`, {
         method: 'PUT',
         body: JSON.stringify(data)
       });

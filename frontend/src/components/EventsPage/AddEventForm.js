@@ -32,9 +32,12 @@ const AddEventForm = () =>{
 
         if(name.length < 4)errors.push("Name must be longer than 4 character")
         if(name.length > 30 )errors.push("Name must be less than 30 Character")
+        if(description.length< 0)errors.push("Description can not be Empty")
+        if(image.length < 0)errors.push("Event Image URL can not be Empty")
+        if(address.length < 0)errors.push("Address can not be Empty")
         if(date < currentDate )errors.push("Event Date must be set in the future ")
         setValidationErrors(errors)
-    },[date,name])
+    },[date,name,description,image,address])
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
