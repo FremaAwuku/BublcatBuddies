@@ -11,7 +11,7 @@ const db = require('../../db/models');
 router.get(
     '/',
     asyncHandler(async(req,res)=>{
-        const events = await db.Event.findAll({include:{ model:db.Rsvp,
+        const events = await db.Event.findAll({include:{
             model:db.User}})
         return res.json(events)
     })
@@ -23,7 +23,7 @@ router.get(
     asyncHandler(async(req,res)=>{
         const eventId = req.params.id
         const event = await db.Event.findByPk(eventId,{
-            include:{ model:db.Rsvp,
+            include:{ 
             model:db.User}
         })
 
