@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+
 const asyncHandler = require('express-async-handler');
 const { check, validationResult } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
@@ -25,7 +26,9 @@ router.get(
     })
 )
 
+
 //post and put
+
 //column are not showing
 
 router.delete(

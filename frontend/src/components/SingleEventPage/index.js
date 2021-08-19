@@ -12,15 +12,18 @@ import { Link } from "react-router-dom"
     if(!event) return null
 
  let editButton
-    if(user.id === event.hostId){
+ if(!user){
+     editButton=(
+        <></>
+     )
+    }else if(user.id === event.hostId){
         editButton = (
         <Link to={`/events/${event.id}/edit`}>
         <button>Edit Event</button>
         </Link>
-
-
         )
     }
+
 let privateEvent
 
     if(event.isPrivate){
@@ -45,7 +48,7 @@ return(
             <p>{event.eventDate}</p>
 
 
-     {editButton}
+                {editButton}
 
 </>
 )
