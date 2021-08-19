@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+
 const asyncHandler = require('express-async-handler');
 const { check, validationResult } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
@@ -11,8 +12,8 @@ const db = require('../../db/models');
 router.get(
     '/',
     asyncHandler(async(req,res)=>{
-        const events = await db.Rsvp.findAll()
-        return res.json(events)
+        const rsvps = await db.Rsvp.findAll()
+        return res.json(rsvps)
     })
 )
 router.get(
@@ -25,8 +26,10 @@ router.get(
     })
 )
 
+
 //post and put
-//column are not showing 
+
+//column are not showing
 
 router.delete(
     "/:id(\\d+)",

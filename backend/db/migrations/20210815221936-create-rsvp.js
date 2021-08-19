@@ -22,11 +22,12 @@ module.exports = {
           model:'Users'
         }
       },
-      interested: {
-        type: Sequelize.BOOLEAN
-      },
+
       confirmed: {
-        type: Sequelize.BOOLEAN
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+
       },
       createdAt: {
         allowNull: false,

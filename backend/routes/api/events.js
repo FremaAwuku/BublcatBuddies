@@ -23,7 +23,7 @@ router.get(
     asyncHandler(async(req,res)=>{
         const eventId = req.params.id
         const event = await db.Event.findByPk(eventId,{
-            include:{ 
+            include:{
             model:db.User}
         })
 
@@ -150,5 +150,40 @@ router.post(
         })
     )
 
+    //GET to all events rsvps
 
+    router.get(
+        "/:id(\\d+)/rsvps",
+        asyncHandler(async(req,res)=>{
+
+            const rsvps = await db.Rsvp.findAll({where:{eventId:req.params.id}})
+            return res.json(rsvps)
+
+        })
+    )
+
+    //POST and rsvp to an event
+    router.post(
+        "/:id(\\d+)/rsvps",
+        requireAuth ,
+        asyncHandler(async(req,res)=>{
+            const rsvp = await db.Rsvp.create(req.body)
+
+            if(rsvp){
+                rsvp.save()
+                return res.json(rsvp)
+            }
+
+        })
+    )
+
+    router.put(
+        "/:id(\\d+)/rsvps",
+        requireAuth,
+        asyncHandler(async(req,res)=>{
+             const eventId = req.params.id
+             
+
+        })
+    )
 module.exports = router;

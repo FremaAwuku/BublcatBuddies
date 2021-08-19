@@ -61,36 +61,36 @@ const rsvpReducer = (state= initialState, action) =>{
 switch(action.type){
     case LOAD:
          newState = {...state};
-        action.events.forEach(event => {
-            newState[event.id] = event
+        action.rsvps.forEach(rsvp => {
+            newState[rsvp.id] = rsvp
         })
         return newState
 
     case LOAD_ONE:
          newState = {...state};
-        newState[action.event.id] = action.event
+        newState[action.rsvp.id] = action.rsvp
       return newState
 
     case ADD_RSVP:
 
-        if(!state[action.event.id]){
+        if(!state[action.rsvp.id]){
              newState ={
                 ...state,
-                [action.event.id]: action.event
+                [action.rsvp.id]: action.rsvp
             }
             return newState
         }else
         return {
             ...state,
-            [action.event.id]:{
-                ...state[action.event.id],
-                ...action.event
+            [action.rsvp.id]:{
+                ...state[action.rsvp.id],
+                ...action.rsvp
             }
         }
 
     case REMOVE_RSVP:
          newState = {...state};
-        delete newState[action.event.id]
+        delete newState[action.rsvp.id]
         return newState
 
     default:
