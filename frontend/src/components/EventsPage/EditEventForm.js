@@ -2,7 +2,7 @@ import { useParams, useHistory } from "react-router-dom"
 import { useSelector ,useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { editEvent, getEvents } from "../../store/event"
-
+import DeleteEvent from "./DeleteEvent"
 const EditEventForm = () =>{
     const dispatch = useDispatch()
     const history = useHistory()
@@ -33,7 +33,7 @@ const EditEventForm = () =>{
         let current = new Date()
         let currentDate = `${current.getFullYear()}-0${current.getMonth() + 1}-${current.getDate()}`
 
-        console.log(event.eventName)
+
 
         if(name.length < 4)errors.push("Name must be longer than 4 character")
         if(name.length > 30 )errors.push("Name must be less than 30 Character")
@@ -42,7 +42,7 @@ const EditEventForm = () =>{
         if(address.length< 0)errors.push("Address can not be Empty")
         if(date < currentDate )errors.push("Event Date must be set in the future ")
         setValidationErrors(errors)
-    },[date,name,description,image,address])
+    },[date,name,description,image,address,dispatch])
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -61,6 +61,7 @@ const EditEventForm = () =>{
         const editedEvent = await dispatch(editEvent(payload))
 
         if(editedEvent){
+
             history.push(`/events/${event.id}`)
 
     }
@@ -171,11 +172,13 @@ return(
         <button
         type="submit"
         disabled = {validationErrors.length > 0}
+
         >
             Edit Event
         </button>
 
         </form>
+        <DeleteEvent event={event}/>
     </section>
 )
 

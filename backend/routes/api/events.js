@@ -84,7 +84,7 @@ router.post(
         })
         const validationErrors = validationResult(req)
         if(validationErrors.isEmpty()){
-            await event.save
+            await event.save()
             return res.redirect(`${req.baseUrl}/${event.id}`)
         }else{
             return res.redirect(`/signup`)
@@ -121,7 +121,16 @@ router.post(
     isPrivate,
     address,
     eventDate})
-     return res.json(event)
+
+    const validationErrors = validationResult(req)
+    if(validationErrors.isEmpty()){
+        await event.save()
+        return res.json(event)
+    }else{
+        return res.redirect(`${req.baseUrl}/${event.id}/edit`)
+    }
+
+
     }))
 
     router.delete(
@@ -131,8 +140,13 @@ router.post(
         const eventId = req.params.id
 
         const event = await db.Event.findByPk(eventId)
-        await event.destroy();
-        return res.redirect(`${req.baseUrl}/${eventId}`)
+        console.log(event)
+        await event.destroy({
+            where:{
+                id: eventId
+            }
+        });
+        return res.redirect(`${req.baseUrl}`)
         })
     )
 
