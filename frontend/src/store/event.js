@@ -110,18 +110,20 @@ export const editEvent = (payload) => async dispatch => {
       if(response.ok){
         const event = await response.json()
         dispatch(addOneEvent(event))
+        return event
 }
 }
-// export const deleteEvent = (payload) => async dispatch => {
-//     const response = await fetch(`/api/events/${payload.id}`, {
-//         method: 'DELETE',
-//         headers: { 'Content-Type': 'application/json'},
-//       });
-//       if(response.ok){
-//         const event = await response.json()
-//         dispatch(remove(event))
-// }
-// }
+export const deleteEvent = (payload) => async dispatch => {
+    const response = await csrfFetch(`/api/events/${payload.id}`, {
+        method: 'DELETE',
+
+      });
+      if(response.ok){
+        const event = await response.json()
+        dispatch(remove(event))
+
+}
+}
 
 const eventReducer = (state= initialState, action) =>{
         let newState

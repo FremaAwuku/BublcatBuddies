@@ -1,6 +1,6 @@
 import { useParams } from "react-router"
 import { useSelector } from "react-redux"
-
+import { Link } from "react-router-dom"
 
 
  const SingleEventPage = () =>{
@@ -14,9 +14,11 @@ import { useSelector } from "react-redux"
  let editButton
     if(user.id === event.hostId){
         editButton = (
-        <form action={`/events/${event.id}/edit`} method="get">
-            <button>Edit Event</button>
-        </form>
+        <Link to={`/events/${event.id}/edit`}>
+        <button>Edit Event</button>
+        </Link>
+
+
         )
     }
 let privateEvent
