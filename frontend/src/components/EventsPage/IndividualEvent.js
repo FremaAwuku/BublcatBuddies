@@ -20,6 +20,7 @@ const IndividualEvent = ({event})=> {
             <p>{event.description}</p>
             <p>{event.address}</p>
             <p>{event.eventDate}</p>
+            <h3>Number Attending:{event.Rsvp}</h3>
             </span>
         </>
         )

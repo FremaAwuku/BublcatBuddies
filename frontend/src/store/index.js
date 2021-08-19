@@ -3,9 +3,12 @@ import thunk from 'redux-thunk';
 
 import sessionReducer from './session';
 import eventReducer from './event'
+import rsvpReducer from './rsvp'
+
 const rootReducer = combineReducers({
   session:sessionReducer,
-  events:eventReducer
+  events:eventReducer,
+  rsvps:rsvpReducer
 });
 
 let enhancer;
