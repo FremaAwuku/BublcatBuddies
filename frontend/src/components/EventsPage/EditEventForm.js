@@ -3,6 +3,7 @@ import { useSelector ,useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { editEvent, getEvents } from "../../store/event"
 import DeleteEvent from "./DeleteEvent"
+
 const EditEventForm = () =>{
     const dispatch = useDispatch()
     const history = useHistory()

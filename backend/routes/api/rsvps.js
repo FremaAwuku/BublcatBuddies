@@ -2,9 +2,7 @@ const express = require('express')
 const router = express.Router();
 
 const asyncHandler = require('express-async-handler');
-const { check, validationResult } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
-const {eventValidations} = require('../../utils/validations/events')
+
 const {  requireAuth } = require('../../utils/auth');
 const db = require('../../db/models');
 
@@ -16,6 +14,9 @@ router.get(
         return res.json(rsvps)
     })
 )
+
+//
+//get individual rsvp
 router.get(
     "/:id(\\d+)",
     asyncHandler(async(req,res)=>{
@@ -26,14 +27,37 @@ router.get(
     })
 )
 
+//PUT TO SPECiFIC RSVP
+//CHANGE RSVP TO CONFIRMED
+router.put(
+    "/:id(\\d+)",
+    requireAuth,
+    asyncHandler(async(req,res)=>{
+        const rsvpId = req.params.id
+         const {
+             userId,
+             eventValidations,
+             confirmation
+         }=req.body
+         const rsvp = await db.Rsvp.findByPk(rsvpId)
+         rsvp.update({
 
-//post and put
+                userId,
+                eventValidations,
+                confirmation
+         })
+         if(rsvp){
+            await rsvp.save()
+            return res.json
+         }
 
-//column are not showing
+    })
+)
+
 
 router.delete(
     "/:id(\\d+)",
-    requireAuth,
+    // requireAuth,
     asyncHandler(async(req,res)=>{
     const rsvpId = req.params.id
 

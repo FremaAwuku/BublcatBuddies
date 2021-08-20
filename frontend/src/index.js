@@ -10,7 +10,7 @@ import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
 import * as eventActions from "./store/event"
-
+import * as rsvpActions from "./store/rsvp"
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {
@@ -20,6 +20,7 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.sessionActions = sessionActions;
   window.eventActions = eventActions;
+  window.rsvpActions = rsvpActions
 }
 
 function Root() {

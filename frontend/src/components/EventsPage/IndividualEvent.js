@@ -1,10 +1,13 @@
 // import { useEffect } from "react"
-import SingleEventPage from "../SingleEventPage"
+
+// import { useDispatch,useSelector } from "react-redux"
+// import { getEventRsvps } from "../../store/rsvp"
 const IndividualEvent = ({event})=> {
 
 // useEffect(()=>{
-// console.log(event.id)
-// },[event])
+//     dispatch(getEventRsvps(event.id))
+//     console.log(rsvps)
+// },[dispatch])
 
 //TODO Make only public events seen
     // if(!event.isPrivate){
@@ -20,7 +23,7 @@ const IndividualEvent = ({event})=> {
             <p>{event.description}</p>
             <p>{event.address}</p>
             <p>{event.eventDate}</p>
-            <h3>Number Attending:{event.Rsvp}</h3>
+
             </span>
         </>
         )

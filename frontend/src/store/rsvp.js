@@ -5,6 +5,7 @@ const initialState = {}
 const LOAD = 'rsvp/LOAD'
 const LOAD_ONE = 'rsvp/LOAD_ONE'
 const ADD_RSVP = 'rsvp/ADD_RSVP'
+
 const REMOVE_RSVP = 'rsvp/REMOVE_RSVP'
 
 const load = rsvps =>({
@@ -30,13 +31,35 @@ rsvp
 })
 
 //[] TEST WITH DISPATCH
-export const getRsvps = () => async dispatch =>{
-    const response = await fetch(`/api/rsvps`);
+export const getEventRsvps = (eventId) => async dispatch =>{
+    const response = await fetch(`/api/events/${eventId}/rsvps`);
 
     if(response.ok){
         const rsvps = await response.json();
         dispatch(load(rsvps))
     }
+}
+export const addEventRsvp = (payload ) =>async dispatch =>{
+    const {
+        eventId,
+        userId,
+        confirmation
+    }=payload
+
+    const data = {
+        eventId,
+        userId,
+        confirmation
+    }
+    const response = await csrfFetch(`/api/events/${eventId}/rsvps`,{
+        method:'POST',
+        body: JSON.stringify(data)
+    });
+    if(response.ok){
+        const rsvp = await response.json()
+        dispatch(addOneRsvp(rsvp))
+        return rsvp
+}
 }
 export const getOneRsvp = (rsvpId) => async dispatch =>{
     const response = await fetch(`/api/rsvps/${rsvpId}`)
@@ -50,10 +73,23 @@ export const deleteRsvp = (payload) => async dispatch => {
     const response = await csrfFetch(`/api/rsvps/${payload.id}`, {
         method: 'DELETE',
 
+
       });
       if(response.ok){
         const rsvp = await response.json()
         dispatch(remove(rsvp))
+}
+}
+export const editRsvp = (payload) => async dispatch =>{
+
+    const response = await csrfFetch(`/api/rsvps/${payload.id}`,{
+        method:'PUT',
+        body: JSON.stringify(payload)
+    });
+    if(response.ok){
+        const rsvp = await response.json()
+        dispatch(addOneRsvp(rsvp))
+        return rsvp
 }
 }
 const rsvpReducer = (state= initialState, action) =>{
