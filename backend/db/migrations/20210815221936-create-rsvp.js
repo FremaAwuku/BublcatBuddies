@@ -13,14 +13,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model:'Events'
-        }
+        },
+        unique: 'actions'
       },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model:'Users'
-        }
+        },
+        unique: 'actions'
       },
 
       confirmed: {
@@ -37,7 +39,16 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    },
+
+    {
+      uniqueKeys:{
+      actions_unique:{
+        fields:['userId','eventId']
+      }
+
+    }
+  });
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Rsvps');

@@ -43,13 +43,13 @@ export const addEventRsvp = (payload ) =>async dispatch =>{
     const {
         eventId,
         userId,
-        confirmation
+        confirmed
     }=payload
 
     const data = {
         eventId,
         userId,
-        confirmation
+        confirmed
     }
     const response = await csrfFetch(`/api/events/${eventId}/rsvps`,{
         method:'POST',

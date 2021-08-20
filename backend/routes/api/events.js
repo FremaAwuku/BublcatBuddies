@@ -162,6 +162,8 @@ router.post(
         "/:id(\\d+)/rsvps",
         requireAuth ,
         asyncHandler(async(req,res)=>{
+            //TODO Query to check if rsvp exisit
+            //IF exiist update if it doesnt create
             const rsvp = await db.Rsvp.create(req.body)
 
             if(rsvp){

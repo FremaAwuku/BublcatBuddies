@@ -57,7 +57,7 @@ router.put(
 
 router.delete(
     "/:id(\\d+)",
-    // requireAuth,
+    requireAuth,
     asyncHandler(async(req,res)=>{
     const rsvpId = req.params.id
 

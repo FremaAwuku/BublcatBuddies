@@ -8,12 +8,14 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       allowNull: false,
       type: DataTypes.INTEGER,
+
     },
     confirmed: {
       allowNull: false,
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
+
   }, {});
   Rsvp.associate = function(models) {
 
