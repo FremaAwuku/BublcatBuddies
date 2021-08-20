@@ -150,7 +150,7 @@ router.post(
         })
     )
 
-    //GET to all events rsvps
+    //GET to all event's rsvps
 
     router.get(
         "/:id(\\d+)/rsvps",
@@ -177,13 +177,5 @@ router.post(
         })
     )
 
-    router.put(
-        "/:id(\\d+)/rsvps",
-        requireAuth,
-        asyncHandler(async(req,res)=>{
-             const eventId = req.params.id
-             
 
-        })
-    )
 module.exports = router;

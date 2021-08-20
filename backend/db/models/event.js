@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Event.associate = function(models) {
     Event.belongsTo(models.User,{foreignKey:'hostId'})
-    Event.belongsToMany(models.User,{ through:'Rsvps',foreignKey:'eventId', otherKey:'userId'})
+    Event.belongsToMany(models.User,{ through:'Rsvps',foreignKey:'eventId', otherKey:'userId', onDelete: 'CASCADE', hooks:true})
   };
   return Event;
 };

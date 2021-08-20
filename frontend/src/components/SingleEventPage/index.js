@@ -1,6 +1,8 @@
 import { useParams } from "react-router"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import RsvpsOnEvents from "../Rsvps/RsvpsOnEvents"
+import AddEventRsvp from "../Rsvps/AddEventRsvp"
 
 
  const SingleEventPage = () =>{
@@ -47,7 +49,8 @@ return(
             <p>{event.address}</p>
             <p>{event.eventDate}</p>
 
-
+    <RsvpsOnEvents eventId ={eventId}/>
+    <AddEventRsvp eventId={eventId}/>
                 {editButton}
 
 </>

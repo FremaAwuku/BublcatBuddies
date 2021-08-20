@@ -247,7 +247,7 @@ return queryInterface.bulkInsert('Rsvps',
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('Rsvps', null, {});
+    return queryInterface.bulkDelete('Events', null, {truncate: true, cascade: true, restartIdentity: true});
 
   }
 };

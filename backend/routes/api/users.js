@@ -4,7 +4,8 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, BublcatBuddy, Rsvp } = require('../../db/models');
+
 
 //uses express validator to check user inputs
 //passes the handleValidationErrors
@@ -27,6 +28,51 @@ const validateSignup = [
     .withMessage('Password must be 6 characters or more.'),
   handleValidationErrors,
 ];
+
+//GETS ALL USERS
+//used in user search
+router.get('/',
+requireAuth,
+asyncHandler(async (req, res) => {
+  const users = await User.findAll()
+  return res.json(users)
+}
+))
+
+//GET SPECIFIC USERS BUDDY LIST
+router.get('/:id(\\d+)/bublcat-buddies',
+requireAuth,
+asyncHandler(async (req, res) => {
+  const buddyList = await BublcatBuddy.findAll({where:{userId:req.params.id}})
+  return res.json(buddyList)
+}
+)
+)
+
+//add friend to buddies list
+router.post('/:id(\\d+)/bublcat-buddies',
+requireAuth,
+asyncHandler(async (req, res) => {
+  const buddy = await BublcatBuddy.create(req.body)
+   if(buddy){
+     buddy.save()
+     return res.json(buddy)
+   }
+}
+)
+)
+
+//GET ALL USERS RSVPS
+//Found on User profile page
+router.get('/:id(\\d+)/rsvps',
+   requireAuth,
+  asyncHandler(async (req, res) => {
+    const userRsvps = await Rsvp.findAll({where:{userId:req.params.id}})
+    return res.json(userRsvps)
+  }
+  )
+
+)
 
 
 

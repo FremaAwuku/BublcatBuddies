@@ -10,11 +10,13 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const eventsRouter = require('./events.js')
 const rsvpsRouter = require('./rsvps.js')
+const bublcatBuddiesRouter = require('./bublcat-buddies.js')
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/events', eventsRouter)
 router.use('/rsvps', rsvpsRouter)
+router.use('/bublcat-buddies', bublcatBuddiesRouter)
 
 
 

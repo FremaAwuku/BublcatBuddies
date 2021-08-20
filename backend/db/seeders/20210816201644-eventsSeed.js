@@ -54,7 +54,7 @@ updatedAt: new Date()
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('Events', null, {});
+    return queryInterface.bulkDelete('Events', null, {truncate: true, cascade: true, restartIdentity: true});;
 
   }
 };
