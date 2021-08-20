@@ -1,10 +1,10 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const BublcatBuddiesRepo = require("../../db/bublcat-buddies-repository")
-
+const {requireAuth} = require('../../utils/auth')
 const router = express.Router();
 router.delete('/:id(\\d+)',
-//requireAuth,
+requireAuth,
 asyncHandler(async (req, res) => {
   const buddyId = await BublcatBuddiesRepo.deleteBuddy(req.params.id);
   //not sure if we need to send back th

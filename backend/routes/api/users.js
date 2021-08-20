@@ -38,6 +38,15 @@ asyncHandler(async (req, res) => {
   return res.json(users)
 }
 ))
+router.get('/:id(\\d+)',
+
+requireAuth,
+asyncHandler(async (req, res) => {
+  
+  const user = await User.findByPk(req.params.id)
+  return res.json(user)
+}
+))
 
 //GET SPECIFIC USERS BUDDY LIST
 router.get('/:id(\\d+)/bublcat-buddies',

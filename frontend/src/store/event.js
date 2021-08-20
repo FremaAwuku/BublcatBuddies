@@ -25,9 +25,9 @@ const addOneEvent = event =>({
         event
 })
 
-const remove = event =>({
+const remove = eventId =>({
     type:REMOVE_EVENT,
-    event
+    eventId
 })
 
 
@@ -120,7 +120,7 @@ export const deleteEvent = (payload) => async dispatch => {
       });
       if(response.ok){
         const event = await response.json()
-        dispatch(remove(event))
+        dispatch(remove(payload.id))
 
 }
 }
@@ -159,7 +159,7 @@ const eventReducer = (state= initialState, action) =>{
 
         case REMOVE_EVENT:
              newState = {...state};
-            delete newState[action.event.id]
+            delete newState[action.eventId]
             return newState
 
         default:

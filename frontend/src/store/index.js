@@ -4,11 +4,14 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import eventReducer from './event'
 import rsvpReducer from './rsvp'
-
+import buddyReducer from './bublcat-buddies'
+import userReducer from './user';
 const rootReducer = combineReducers({
   session:sessionReducer,
   events:eventReducer,
-  rsvps:rsvpReducer
+  rsvps:rsvpReducer,
+  buddies: buddyReducer,
+  users: userReducer
 });
 
 let enhancer;

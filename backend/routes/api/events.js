@@ -132,7 +132,7 @@ router.post(
 
 
     }))
-
+//DELETE EVENT
     router.delete(
         "/:id(\\d+)",
         requireAuth,
@@ -140,18 +140,13 @@ router.post(
         const eventId = req.params.id
 
         const event = await db.Event.findByPk(eventId)
-        console.log(event)
-        await event.destroy({
-            where:{
-                id: eventId
-            }
-        });
-        return res.redirect(`${req.baseUrl}`)
+
+        await event.destroy();
+        return res.json({})
         })
     )
 
     //GET to all event's rsvps
-
     router.get(
         "/:id(\\d+)/rsvps",
         asyncHandler(async(req,res)=>{

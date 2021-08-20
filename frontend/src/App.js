@@ -13,6 +13,7 @@ import AddEventForm from "./components/EventsPage/AddEventForm";
 import SingleEventPage from "./components/SingleEventPage";
  import { getEvents } from "./store/event";
 import EditEventForm from "./components/EventsPage/EditEventForm";
+import SplashPage from "./components/SplashPage";
 
 function App() {
 
@@ -32,6 +33,9 @@ function App() {
         {/* anything that needs to persist sitewide must be above this line */}
         {isLoaded && (
           <Switch>
+            <Route  exact path="/">
+              <SplashPage/>
+            </Route>
             <Route path="/signup">
               <SignupFormPage />
             </Route>

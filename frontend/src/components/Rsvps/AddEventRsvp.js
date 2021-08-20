@@ -35,7 +35,7 @@ const AddEventRsvp = ({eventId}) =>{
         await dispatch(addEventRsvp(payload))
      }
 
-     let r
+
 
      if(userRsvps.find(user => userId === user.id)){
 
@@ -85,10 +85,6 @@ const AddEventRsvp = ({eventId}) =>{
     //if rsvp at the user id is includes then
     //show nothing but if it does show add rsvp
     //
-
-
-
-
 }
 
 

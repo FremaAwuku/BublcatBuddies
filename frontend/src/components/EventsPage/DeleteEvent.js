@@ -8,10 +8,8 @@ const history = useHistory()
     const handleSubmit = async (e) =>{
         e.preventDefault()
 
-        const deletedEvent = await dispatch(deleteEvent(event))
-        if(deletedEvent){
+        dispatch(deleteEvent(event))
             history.push(`/events`)
-        }
 
     }
 
