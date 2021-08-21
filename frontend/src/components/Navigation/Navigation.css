@@ -1,11 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Timmana&display=swap');
+
 *{
+
     box-sizing: border-box;
 
+
 }
+ul{
+    box-sizing: border-box;
+
+    background-color: rgb(129, 53, 18);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+
+}
+
 form{
+    box-sizing: border-box;
     padding: 10px;
 }
 button{
+    box-sizing: border-box;
    box-sizing: border-box;
-   
+
 }
+li{
+    display: inline;
+    float: right;
+}
+li  .navLink{
+
+    gap: 15px;
+    box-sizing: border-box;
+
+    display: block;
+
+
+
+}
+.navLink{
+    text-decoration: none;
+    color: white;
+    font-family: 'Shrikhand', cursive;
+    font-size: 100;
+
+
+
+}
+.paw-btn{
+    background-color: rgb(238, 230, 117);
+    border-radius: 10px;
+    border: 1px solid rgb(129, 53, 18, .5);
+    padding:2px;
+    width: auto;
+    height: auto;
+
+
+}
+li> #home.navLink{
+
+border: 2px solid red;
+
+
+}
+li> #event.navLink{
+
+    border: 2px solid green;
+
+
+    }
+
+li> #bublcat.navLink{
+
+
+    border: 2px solid red;
+
+
+    }

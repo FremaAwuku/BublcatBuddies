@@ -6,6 +6,8 @@ import eventReducer from './event'
 import rsvpReducer from './rsvp'
 import buddyReducer from './bublcat-buddies'
 import userReducer from './user';
+
+
 const rootReducer = combineReducers({
   session:sessionReducer,
   events:eventReducer,

@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 
 
 import EventsPage  from "./components/EventsPage/EventsPage";
-import TestComponent from "./components/TestComponent";
+
 import AddEventForm from "./components/EventsPage/AddEventForm";
 import SingleEventPage from "./components/SingleEventPage";
  import { getEvents } from "./store/event";
@@ -29,7 +29,7 @@ function App() {
     <>
 
         <Navigation isLoaded={isLoaded} />
-        <TestComponent/>
+
         {/* anything that needs to persist sitewide must be above this line */}
         {isLoaded && (
           <Switch>
