@@ -1,12 +1,11 @@
 import { useEffect, useState} from "react"
 import { useDispatch,useSelector } from "react-redux"
-import {useHistory} from 'react-router-dom'
+
 import { getEventRsvps , addEventRsvp} from "../../store/rsvp"
 
 
 const AddEventRsvp = ({eventId}) =>{
     const dispatch = useDispatch()
-    const history = useHistory()
 
     const userId = useSelector(state => state.session.user.id)
     const userRsvps = useSelector(state =>Object.values(state.rsvps))
@@ -77,6 +76,7 @@ const AddEventRsvp = ({eventId}) =>{
                         </button>
                 </span>
             </form>
+
          </>)
      }
 

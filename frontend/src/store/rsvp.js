@@ -70,28 +70,30 @@ export const getOneRsvp = (rsvpId) => async dispatch =>{
     }
 }
 export const deleteRsvp = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/rsvps/${payload.id}`, {
+    const {
+        eventId,
+        userId,
+        confirmed
+    }=payload
+
+    const data = {
+        eventId,
+        userId,
+        confirmed
+    }
+
+    const response = await csrfFetch(`/api/events/${eventId}/rsvps`, {
         method: 'DELETE',
+        body: JSON.stringify(data)
 
 
       });
       if(response.ok){
-        const rsvp = await response.json()
-        dispatch(remove(rsvp))
+        const rsvpId = await response.json()
+        dispatch(remove(rsvpId))
 }
 }
-export const editRsvp = (payload) => async dispatch =>{
 
-    const response = await csrfFetch(`/api/rsvps/${payload.id}`,{
-        method:'PUT',
-        body: JSON.stringify(payload)
-    });
-    if(response.ok){
-        const rsvp = await response.json()
-        dispatch(addOneRsvp(rsvp))
-        return rsvp
-}
-}
 const rsvpReducer = (state= initialState, action) =>{
     let newState
 switch(action.type){
