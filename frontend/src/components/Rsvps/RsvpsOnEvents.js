@@ -3,11 +3,12 @@ import { useDispatch,useSelector } from "react-redux"
 import { getEventRsvps } from "../../store/rsvp"
 
 
-const RsvpsOnEvents = ({eventId}) =>{
+const RsvpsOnEvents =  ({eventId})  =>{
 
 const rsvps = useSelector(state =>Object.values(state.rsvps))
 const confirmed = useSelector(state =>Object.values(state.rsvps).filter(rsvp => rsvp.confirmed))
 const dispatch = useDispatch()
+
  useEffect(()=>{
 
 dispatch(getEventRsvps(eventId))

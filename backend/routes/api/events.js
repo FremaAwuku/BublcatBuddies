@@ -6,6 +6,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 const {eventValidations} = require('../../utils/validations/events')
 const {  requireAuth } = require('../../utils/auth');
 const db = require('../../db/models');
+
 //GET /api/events
 //any user has access to all events
 router.get(
@@ -146,6 +147,10 @@ router.post(
         })
     )
 
+
+
+
+    //RSVPS
     //GET to all event's rsvps
     router.get(
         "/:id(\\d+)/rsvps",
@@ -164,15 +169,55 @@ router.post(
         asyncHandler(async(req,res)=>{
             //TODO Query to check if rsvp exisit
             //IF exiist update if it doesnt create
-            const rsvp = await db.Rsvp.create(req.body)
 
-            if(rsvp){
-                rsvp.save()
-                return res.json(rsvp)
-            }
+                const {
+                    eventId,
+                    userId,
+                    confirmed
+                }= req.body
+
+                const rsvp = await db.Rsvp.findOne({where:{eventId, userId}})
+
+                if(!rsvp){
+                    const newRsvp = await db.Rsvp.create({eventId,userId,confirmed})
+
+
+                        newRsvp.save()
+                        return res.json(newRsvp)
+
+
+                }else{
+
+                    await rsvp.update({
+                        eventId,
+                        userId,
+                        confirmed
+                    })
+
+
+                    return res.json(rsvp)
+                }
 
         })
     )
+
+
+router.delete(
+    "/:id(\\d+)/rsvps",
+     requireAuth,
+    asyncHandler(async(req,res)=>{
+        const {
+            eventId,
+            userId,
+        }= req.body
+
+        const rsvpId = await db.Rsvp.findOne({where:{eventId, userId}}).id
+        await db.Rsvp.destroy({where:{eventId, userId}})
+
+
+    return res.json({rsvpId})
+    })
+)
 
 
 module.exports = router;
