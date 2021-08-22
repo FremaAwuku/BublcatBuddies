@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import EditEventForm from "./components/EventsPage/EditEventForm";
 import SplashPage from "./components/SplashPage";
 import { getUsers } from "./store/user";
+import BublcatBuddies from "./components/BublcatBuddies/BublcatBuddies";
 
 function App() {
 
@@ -57,6 +58,10 @@ function App() {
             </Route>
             <Route path="/events/:eventId/edit">
               <EditEventForm/>
+            </Route>
+            <Route path="/bublcat-buddies">
+              <BublcatBuddies/>
+              
             </Route>
           </Switch>
 

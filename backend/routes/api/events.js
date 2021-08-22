@@ -165,7 +165,7 @@ router.post(
     //POST and rsvp to an event
     router.post(
         "/:id(\\d+)/rsvps",
-        requireAuth ,
+         requireAuth ,
         asyncHandler(async(req,res)=>{
             //TODO Query to check if rsvp exisit
             //IF exiist update if it doesnt create
@@ -188,14 +188,15 @@ router.post(
 
                 }else{
 
-                    await rsvp.update({
+                   const updatedRsvp = await rsvp.update({
                         eventId,
                         userId,
                         confirmed
                     })
 
+                    updatedRsvp.save()
 
-                    return res.json(rsvp)
+                    return res.json(updatedRsvp)
                 }
 
         })
@@ -211,11 +212,11 @@ router.delete(
             userId,
         }= req.body
 
-        const rsvpId = await db.Rsvp.findOne({where:{eventId, userId}}).id
+        const rsvp = await db.Rsvp.findOne({where:{eventId, userId}})
+
         await db.Rsvp.destroy({where:{eventId, userId}})
 
-
-    return res.json({rsvpId})
+    return res.json({rsvpId:rsvp.id})
     })
 )
 

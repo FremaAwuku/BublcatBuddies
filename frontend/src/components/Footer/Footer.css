@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;500;900&display=swap');
 .footer{
-
+box-sizing: border-box;
         background: linear-gradient(45deg, #FC466B, #3F5EFB);
         height: 10vh;
-        position: absolute;
+        position: fixed;
         margin-top: 80px;
         left: 0;
         bottom: -35px;

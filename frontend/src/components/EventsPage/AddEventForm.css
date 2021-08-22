@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;500;900&display=swap');
-*{
 
-}
-h1{
+h1.newEvent{
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 30pt;

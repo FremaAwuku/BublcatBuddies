@@ -37,6 +37,10 @@ function Navigation({ isLoaded }){
         <li>
           <NavLink to="/events" className='navLink' id="event">EVENTS</NavLink>
         </li>
+        <br/>
+        <li>
+          <NavLink to="/bublcat-buddies" className='navLink' id="buddies">FIND BUBLCAT BUDDIES</NavLink>
+        </li>
 
       </ul>
     </nav>

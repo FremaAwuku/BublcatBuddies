@@ -1,0 +1,41 @@
+body{
+    margin-left:3em;
+    margin-right: 3em;
+}
+section.tileSect {
+    background-color: blue;
+    box-sizing: border-box;
+    ;
+    grid-template-columns: 1fr 900px;
+}
+.userTile{
+    padding: 5rem 15% 0rem 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10rem;
+    grid-template-areas:
+    "img text"
+    ;
+    justify-items: center;
+}
+.userTile.flipped{
+    padding: 5rem 20% 0rem 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 8rem;
+    grid-template-areas:
+    "text img"
+    ;
+}
+.imgTile{
+    grid-area: img;
+}
+.userDetails{
+    grid-area: text
+}
+.flipped > .imgTile{
+    grid-area: img;
+}
+.flipped >.userDetails{
+    grid-area: text
+}

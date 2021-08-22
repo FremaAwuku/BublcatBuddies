@@ -25,9 +25,9 @@ const addOneRsvp= rsvp=>({
     rsvp
 })
 
-const remove = rsvp =>({
+const remove = rsvpId =>({
 type:REMOVE_RSVP,
-rsvp
+rsvpId
 })
 
 //[] TEST WITH DISPATCH
@@ -97,7 +97,9 @@ export const deleteRsvp = (payload) => async dispatch => {
 
       });
       if(response.ok){
-        const rsvpId = await response.json()
+        const deletedRsvp = await response.json({})
+        const rsvpId = deletedRsvp.rsvpId
+        console.log(rsvpId, `<store backend rsvp id`)
         dispatch(remove(rsvpId))
 }
 }
@@ -138,7 +140,7 @@ switch(action.type){
 
     case REMOVE_RSVP:
          newState = {...state};
-        delete newState[action.rsvp.id]
+        delete newState[action.rsvpId]
         return newState
 
     default:

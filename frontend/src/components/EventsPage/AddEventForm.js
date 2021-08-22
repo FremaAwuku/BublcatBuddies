@@ -61,7 +61,7 @@ const AddEventForm = () =>{
 
     return(
         <section className="addEventForm">
-            <h1>CREATE NEW EVENT</h1>
+            <h1 className="newEvent">CREATE NEW EVENT</h1>
 
             <form className="addEventForm" onSubmit={handleSubmit}>
             <span>
