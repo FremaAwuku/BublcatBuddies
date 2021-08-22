@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Timmana&display=swap');
+
+.addEventBtn{
+    background-color: white;
+
+    border: 2px solid  rgb(224,92,44);
+    color: rgb(224,92,44);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: grid;
+    font-size: 30px;
+    border-radius: 12px;
+    text-align: center;
+    grid-area: btn;
+    font-family: 'Timmana', sans-serif;
+    height:45px
+
+
+}
+.btnContainer{
+    display: grid;
+    grid-template-areas: ". . btn . .";
+    grid-template-columns: 1fr 1fr auto 1fr 1fr;
+}
+.container{
+    box-sizing: border-box;
+    margin-left: 7em;
+    margin-right: 7em ;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.mainContainer{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+
+
+}
+.landing>img{
+    box-sizing: border-box;
+    width: 100%;
+    object-fit:cover;
+    object-position: 0% 70%;
+    height: 300px;
+    display: inline;
+
+    margin:0px;
+
+}
+
+.landing{
+    box-sizing: border-box;
+position: relative;
+margin-bottom: 0px;
+height:300px ;
+}
+
+.landing>h1{
+    box-sizing: border-box;
+    color:rgb(224,92,44);;
+    font-family: 'Shrikhand', cursive;
+    font-size: 100px;
+    font-weight: 500;
+    margin: 0px;
+    width: 100%;
+    position: relative;
+    bottom:250px;
+    text-shadow: -1px -1px 0 rgb(80, 1, 1), 1px -1px 0 rgba(41, 39, 39, 0.233), -1px 1px 0 rgb(202, 202, 202), 1px 1px 0 rgb(202, 202, 202);
+}
+.landing>h2{
+    box-sizing: border-box;
+    color:white;
+    font-family: 'Shrikhand', cursive;
+    font-size: 100px;
+    font-weight: 500;
+    margin: 0px;
+    width: 100%;
+    position: relative;
+    bottom:405px;
+    z-index: 2;
+    text-shadow: -1px -1px 0 rgb(80, 1, 1), 1px -1px 0 rgba(41, 39, 39, 0.233), -1px 1px 0 rgb(202, 202, 202), 1px 1px 0 rgb(202, 202, 202);
+}

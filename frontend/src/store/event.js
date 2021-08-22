@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf"
 
 const initialState = {}
+
 const LOAD = 'event/LOAD'
 const LOAD_ONE = 'event/LOAD_ONE'
 const ADD_EVENT = 'event/ADD_EVENT'

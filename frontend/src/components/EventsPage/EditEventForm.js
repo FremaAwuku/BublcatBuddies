@@ -14,12 +14,12 @@ const EditEventForm = () =>{
     const hostId = useSelector(store => store.session.user.id)
 
 //issue with rendering the useState for eventName
-    const [name, setName] = useState(event.eventName)
-    const [description, setDescription] = useState(event.description)
-    const [image, setImage] = useState(event.eventImageUrl)
-    const [isPrivate, setIsPrivate] = useState(event.isPrivate)
-    const [address, setAddress] = useState(event.address)
-    const [date, setDate] = useState(event.eventDate)
+    const [name, setName] = useState(event?.eventName)
+    const [description, setDescription] = useState(event?.description)
+    const [image, setImage] = useState(event?.eventImageUrl)
+    const [isPrivate, setIsPrivate] = useState(event?.isPrivate)
+    const [address, setAddress] = useState(event?.address)
+    const [date, setDate] = useState(event?.eventDate)
     const [validationErrors,setValidationErrors] = useState([])
 
     const updateName = (e) => setName (e.target.value)
@@ -36,11 +36,11 @@ const EditEventForm = () =>{
 
 
 
-        if(name.length < 4)errors.push("Name must be longer than 4 character")
-        if(name.length > 30 )errors.push("Name must be less than 30 Character")
-        if(description.length< 0)errors.push("Description can not be Empty")
-        if(image.length< 0)errors.push("Event Image URL can not be Empty")
-        if(address.length< 0)errors.push("Address can not be Empty")
+        if(name?.length < 4)errors.push("Name must be longer than 4 character")
+        if(name?.length > 30 )errors.push("Name must be less than 30 Character")
+        if(description?.length< 0)errors.push("Description can not be Empty")
+        if(image?.length< 0)errors.push("Event Image URL can not be Empty")
+        if(address?.length< 0)errors.push("Address can not be Empty")
         if(date < currentDate )errors.push("Event Date must be set in the future ")
         setValidationErrors(errors)
     },[date,name,description,image,address,dispatch])
@@ -70,13 +70,13 @@ const EditEventForm = () =>{
 
 
 return(
-    <section>
-        <h1>{`Edit ${event.eventName}`}</h1>
+    <section className="editSect">
+        <h1>{`Edit ${event?.eventName}`}</h1>
         <ul className="errors">
             {validationErrors && validationErrors.map(errors=>
             <li key={errors}>{errors}</li>)}
         </ul>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="editForm">
         <span>
             <label htmlFor="eventName"
             >Event Name:</label>

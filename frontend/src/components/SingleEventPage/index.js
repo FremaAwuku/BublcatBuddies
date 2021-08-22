@@ -2,8 +2,8 @@ import { useParams } from "react-router"
 import { useSelector,useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import RsvpsOnEvents from "../Rsvps/RsvpsOnEvents"
-import AddEventRsvp from "../Rsvps/AddEventRsvp"
-import DeleteEventRsvp from "../Rsvps/DeleteEventRsvp"
+
+
 import { useEffect } from "react"
 import { getEventRsvps } from "../../store/rsvp"
 
@@ -60,8 +60,8 @@ return(
             <p>{event.eventDate}</p>
 
     <RsvpsOnEvents eventId ={eventId}/>
-    <AddEventRsvp eventId={eventId}/>
-    <DeleteEventRsvp eventId={eventId} />
+
+
 
 
 

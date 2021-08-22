@@ -25,14 +25,22 @@ const addOneRsvp= rsvp=>({
     rsvp
 })
 
-const remove = rsvp =>({
+const remove = rsvpId =>({
 type:REMOVE_RSVP,
-rsvp
+rsvpId
 })
 
 //[] TEST WITH DISPATCH
 export const getEventRsvps = (eventId) => async dispatch =>{
     const response = await fetch(`/api/events/${eventId}/rsvps`);
+
+    if(response.ok){
+        const rsvps = await response.json();
+        dispatch(load(rsvps))
+    }
+}
+export const getUserRsvps = (userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/users/${userId}/rsvps`);
 
     if(response.ok){
         const rsvps = await response.json();
@@ -89,10 +97,14 @@ export const deleteRsvp = (payload) => async dispatch => {
 
       });
       if(response.ok){
-        const rsvpId = await response.json()
+        const deletedRsvp = await response.json({})
+        const rsvpId = deletedRsvp.rsvpId
+        console.log(rsvpId, `<store backend rsvp id`)
         dispatch(remove(rsvpId))
 }
 }
+
+
 
 const rsvpReducer = (state= initialState, action) =>{
     let newState
@@ -128,7 +140,7 @@ switch(action.type){
 
     case REMOVE_RSVP:
          newState = {...state};
-        delete newState[action.rsvp.id]
+        delete newState[action.rsvpId]
         return newState
 
     default:

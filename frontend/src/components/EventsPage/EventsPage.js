@@ -15,8 +15,8 @@ const EventsPage = () =>{
     let addEventButton;
     if(sessionUser){
         addEventButton = (
-        <form method="get" action="/events/add">
-            <button>Add An Event </button>
+        <form method="get" action="/events/add" className={styles.btnContainer}>
+            <button className={styles.addEventBtn}>Add An Event </button>
         </form>)
                 }
 
@@ -26,17 +26,24 @@ const EventsPage = () =>{
     },[dispatch])
 
 return(
-    <div className={styles.mainContainer}>
-        <main>
-            <h1> Become a Bublcat Buddy Today</h1>
+    <div className={styles.container} >
+        <main className={styles.landing} >
+            <img  src="http://www.vectorfree.com/media/vectors/sixties-wallpaper.jpg"></img>
+                <h1 style={{textAlign:"center"}} > Explore Events in Atlanta</h1>
+                <h2  style={{textAlign:"center"}}>Explore Events in Atlanta</h2>
         </main>
-        {addEventButton}
+
+            {addEventButton}
 
 
+
+        <section className={styles.mainContainer}>
         {events?.map((event)=>
-        <IndividualEvent key={event.id} event={event}/>
+                <IndividualEvent key={event.id} event={event}/>
 
-         ) }
+                ) }
+        </section>
+
 
     </div>
 

@@ -2,7 +2,7 @@ import {  useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch} from 'react-redux';
 import { createEvent } from '../../store/event';
-
+import './AddEventForm.css'
 const AddEventForm = () =>{
     const dispatch = useDispatch()
     const history = useHistory()
@@ -60,14 +60,15 @@ const AddEventForm = () =>{
     }
 
     return(
-        <section>
-            <h1>Create new Event</h1>
+        <section className="addEventForm">
+            <h1 className="newEvent">CREATE NEW EVENT</h1>
+
+            <form className="addEventForm" onSubmit={handleSubmit}>
+            <span>
             <ul className="errors">
                 {validationErrors && validationErrors.map(errors=>
                 <li key={errors}>{errors}</li>)}
             </ul>
-            <form onSubmit={handleSubmit}>
-            <span>
                 <label htmlFor="eventName"
                 >Event Name:</label>
                 <input
@@ -92,23 +93,8 @@ const AddEventForm = () =>{
                 onChange={updateDescription}
                 />
             </span>
-
-
             <span>
-                <label htmlFor="eventImageUrl"
-                >Insert Event Image URL:</label>
-                <input
-                type="text"
-                required
-                placeholder="Event Image"
-                name="eventImageUrl"
-                value={image}
-                onChange={updateImage}
-                >
-                </input>
-            </span>
 
-            <span>
                 <label >
 
                 Public
@@ -131,6 +117,24 @@ const AddEventForm = () =>{
                 />
                 </label>
             </span>
+
+
+
+            <span>
+                <label htmlFor="eventImageUrl"
+                className="imgLabel"
+                >Insert Event <br></br>Image URL:</label>
+                <input
+                type="text"
+                required
+                placeholder="Event Image"
+                name="eventImageUrl"
+                value={image}
+                onChange={updateImage}
+                >
+                </input>
+            </span>
+
 
 
             <span>
@@ -163,6 +167,7 @@ const AddEventForm = () =>{
             <button
             type="submit"
             disabled = {validationErrors.length > 0}
+            className="formBttn"
             >
                 Submit Event
             </button>

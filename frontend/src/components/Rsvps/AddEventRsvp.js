@@ -3,6 +3,7 @@ import { useDispatch,useSelector } from "react-redux"
 
 import { getEventRsvps , addEventRsvp} from "../../store/rsvp"
 
+import "./AddEventRsvp.css"
 
 const AddEventRsvp = ({eventId}) =>{
     const dispatch = useDispatch()
@@ -44,40 +45,44 @@ const AddEventRsvp = ({eventId}) =>{
         )
      }else{
          return(
-         <>
-         <h4>RSVP TO THIS EVENT</h4>
-            <form
-            onSubmit={handleSubmit}>
-                <span>
-                    <label>
-                        Interested
+         <div >
+                        <h1 className="header">RSVP TO THIS EVENT</h1>
+                            <form
+                            onSubmit={handleSubmit}
+                            style={{width:350 ,backgroundColor:"red"}}
+                            >
 
-                        <input
-                        type="radio"
-                        value="interested"
-                        name="Interested"
-                        onChange={()=> setConfirmed(false)}
-                        checked = {confirmed === false}
-                        />
-                    </label>
-                    <label>
-                        Going
+                                    <label>
+                                        Interested
 
-                        <input
-                        type="radio"
-                        value="confirmed"
-                        name="Confirmed"
-                        onChange={()=> setConfirmed(true)}
-                        checked = {confirmed === true}
-                        />
-                    </label>
-                    <button type="submit">
-                        RSVP TO THIS EVENT
-                        </button>
-                </span>
-            </form>
+                                        <input
+                                        className="inputbox"
+                                        type="radio"
+                                        value="interested"
+                                        name="Interested"
+                                        onChange={()=> setConfirmed(false)}
+                                        checked = {confirmed === false}
+                                        />
+                                    </label>
+                                    <label>
+                                        Going
 
-         </>)
+                                        <input
+                                        className="inputbox"
+                                        type="radio"
+                                        value="confirmed"
+                                        name="Confirmed"
+                                        onChange={()=> setConfirmed(true)}
+                                        checked = {confirmed === true}
+                                        />
+                                    </label>
+                                    <button type="submit">
+                                        RSVP TO THIS EVENT
+                                        </button>
+
+                            </form>
+
+         </div>)
      }
 
     //should only render if user doesnt already have an rsvp

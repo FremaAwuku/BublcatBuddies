@@ -42,15 +42,17 @@ router.get('/:id(\\d+)',
 
 requireAuth,
 asyncHandler(async (req, res) => {
-  
+
   const user = await User.findByPk(req.params.id)
   return res.json(user)
 }
 ))
 
+//--------------------BUBLCAT BUDDIES-----------------------------
+
 //GET SPECIFIC USERS BUDDY LIST
 router.get('/:id(\\d+)/bublcat-buddies',
-requireAuth,
+// requireAuth,
 asyncHandler(async (req, res) => {
   const buddyList = await BublcatBuddy.findAll({where:{userId:req.params.id}})
   return res.json(buddyList)
@@ -60,8 +62,9 @@ asyncHandler(async (req, res) => {
 
 //add friend to buddies list
 router.post('/:id(\\d+)/bublcat-buddies',
-requireAuth,
+// requireAuth,
 asyncHandler(async (req, res) => {
+
   const buddy = await BublcatBuddy.create(req.body)
    if(buddy){
      buddy.save()
@@ -70,6 +73,23 @@ asyncHandler(async (req, res) => {
 }
 )
 )
+
+router.delete('/:id(\\d+)',
+requireAuth,
+asyncHandler(async (req, res) => {
+  const buddyId = await BublcatBuddiesRepo.deleteBuddy(req.params.id);
+  //not sure if we need to send back th
+  return res.json({buddyId})
+
+}
+)
+)
+
+
+
+//---------------------------RSVPS-------------------------------------
+
+
 
 //GET ALL USERS RSVPS
 //Found on User profile page
@@ -84,6 +104,8 @@ router.get('/:id(\\d+)/rsvps',
 )
 
 
+
+//--------------------------SIGN UP-----------------------
 
 /** router.post('/')
  * verify users inputs through validateSignup
