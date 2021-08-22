@@ -39,6 +39,14 @@ export const getEventRsvps = (eventId) => async dispatch =>{
         dispatch(load(rsvps))
     }
 }
+export const getUserRsvps = (userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/users/${userId}/rsvps`);
+
+    if(response.ok){
+        const rsvps = await response.json();
+        dispatch(load(rsvps))
+    }
+}
 export const addEventRsvp = (payload ) =>async dispatch =>{
     const {
         eventId,
@@ -93,6 +101,8 @@ export const deleteRsvp = (payload) => async dispatch => {
         dispatch(remove(rsvpId))
 }
 }
+
+
 
 const rsvpReducer = (state= initialState, action) =>{
     let newState

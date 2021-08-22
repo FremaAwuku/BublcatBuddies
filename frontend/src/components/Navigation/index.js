@@ -23,22 +23,23 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
+    <nav>
       {isLoaded && sessionLinks}
-      <li>
-        <NavLink exact to="/" className='navLink' id="home">Home</NavLink>
+      <ul className='navBar'>
 
-      </li>
-      <br/>
-      <li>
-        <NavLink to="/events" className='navLink' id="event">Events</NavLink>
-      </li>
-      <br/>
-      <li>
-        <NavLink to="/bublcat-buddies" className='navLink' id="bublcat">Find Bublcat Buddies</NavLink>
-      </li>
-      <br/>
-    </ul>
+        <li>
+          <NavLink exact to="/" className='navLink' id="home">
+          <i class="fas fa-home"></i>
+          </NavLink>
+
+        </li>
+        <br/>
+        <li>
+          <NavLink to="/events" className='navLink' id="event">EVENTS</NavLink>
+        </li>
+
+      </ul>
+    </nav>
   );
 }
 

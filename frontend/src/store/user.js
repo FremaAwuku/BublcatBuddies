@@ -12,7 +12,7 @@ const load = users =>({
     type:LOAD_ONE,
     user
   })
-  export  const getUsers = (users) => async (dispatch) =>{
+  export  const getUsers = () => async (dispatch) =>{
     const response = await csrfFetch(`/api/users`);
 
     if(response.ok){

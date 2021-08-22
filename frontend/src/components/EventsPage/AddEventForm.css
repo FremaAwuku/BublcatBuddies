@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;500;900&display=swap');
+*{
+
+}
+h1{
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 30pt;
+  position: absolute;
+  top:18%;
+  left:35%;
+  color: rgb(69, 22, 106);
+
+}
+.addEventForm{
+
+  box-sizing: border-box;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+.container {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+.addEventForm form {
+  background: rgba(69, 23, 105, 0.15);
+  padding-left:50px;
+  padding-right:50px;
+  height: 500px;
+  border-radius: 20px;
+  border-left: 1px solid rgba(145, 111, 145, 0.295);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(205, 53, 219, 0.2);
+  text-align: center;
+  position: absolute;
+  left: 25%;
+  bottom: 15%;
+  transition: all 0.2s ease-in-out;
+  width:600px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+  .errors{
+    overflow-wrap: normal;
+    font-size: 14px;
+    list-style: none;
+    color:#bc158a;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-rows: 15px 15px;
+
+
+  }
+  .errors > li{
+    padding:15px;
+  }
+label{
+  padding: 15px 15px 25px;
+  display: inline-block;
+  text-align: right;
+
+
+
+
+
+}
+span >input{
+  box-sizing: border-box;
+  padding: 12px 20px;
+  margin: 8px 0;
+
+  float: right;
+  display:inline-flex;
+border:0;
+box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+border-radius:10px;
+width:65%;
+}
+ input :focus{
+  border: 3px solid  #e671de 75%;
+
+  }
+input [type="radio"]{
+  display: inline-block;
+}
+
+.imgLabel{
+  padding-right:105px;
+  word-wrap:inherit
+
+}
+.formBttn{
+  background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 18px;
+
+    padding:10px;
+    width: 100%;
+    height: auto;
+   color: rgb(69, 22, 106);
+}

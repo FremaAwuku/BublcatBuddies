@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch} from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -11,17 +11,24 @@ import EventsPage  from "./components/EventsPage/EventsPage";
 
 import AddEventForm from "./components/EventsPage/AddEventForm";
 import SingleEventPage from "./components/SingleEventPage";
+import Footer from "./components/Footer";
+
  import { getEvents } from "./store/event";
 import EditEventForm from "./components/EventsPage/EditEventForm";
 import SplashPage from "./components/SplashPage";
+import { getUsers } from "./store/user";
 
 function App() {
 
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
+
+    dispatch(getUsers())
     dispatch(getEvents())
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+
 
   }, [dispatch]);
 
@@ -30,7 +37,7 @@ function App() {
 
         <Navigation isLoaded={isLoaded} />
 
-        {/* anything that needs to persist sitewide must be above this line */}
+        <Footer/>
         {isLoaded && (
           <Switch>
             <Route  exact path="/">
@@ -52,7 +59,9 @@ function App() {
               <EditEventForm/>
             </Route>
           </Switch>
+
         )}
+
     </>
   );
 }
