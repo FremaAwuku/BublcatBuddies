@@ -6,13 +6,15 @@ const UserTile = ({user}) =>{
     return(
     <>
 
-        <div >
-            <img className="imgTile" src={user.profileImgUrl} alt="user tile" style={{width:250}}/>
-            <span className="userDetails">
+        <div className="userTile" >
+            <img className="imgTile" src={user.profileImgUrl} alt="user tile" style={{width:350}}/>
+            <div className="userDetails" >
+                <span id="userDeets">
                 <h3>{user.username}</h3>
                 <AddBuddy buddyId={user.id}/>
+                </span>
 
-            </span>
+            </div>
         </div>
 
     </>

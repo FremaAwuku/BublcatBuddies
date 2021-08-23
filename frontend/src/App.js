@@ -40,7 +40,7 @@ function App() {
 
         <Navigation isLoaded={isLoaded} />
 
-        <Footer/>
+
         {isLoaded && (
           <Switch>
             <Route  exact path="/">
@@ -68,7 +68,7 @@ function App() {
           </Switch>
 
         )}
-
+      <Footer/>
     </>
   );
 }

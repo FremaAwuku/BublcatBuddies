@@ -1,38 +1,152 @@
+.outerCont{
+    background-color: rgb(69, 22, 106); ;
+}
+.userContainer{
+position: relative;
+    left: 30%;
+    right: 40%;
+    width: fit-content;
+    margin:0px;
+    padding:35px;
+    background-color: white;;
 
-section.tileSect {
-    
+
+}
+.userContainer img{
     box-sizing: border-box;
-    ;
-    grid-template-columns: 1fr 900px;
+    margin: 0;
+    width: 400px;
+    height:300px;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 19px;
+
+}
+section.tileSect {
+display: grid;
+    grid-template-columns: 1fr ;
+    width: 750px;
 }
 .userTile{
-    padding: 5rem 15% 0rem 15%;
+    width: fit-content;
+    height: 400px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10rem;
+    grid-template-columns:auto 150px ;
+    grid-column-gap: 3rem;
     grid-template-areas:
-    "img text"
+    "img deets"
     ;
     justify-items: center;
-}
-.userTile.flipped{
-    padding: 5rem 20% 0rem 20%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 8rem;
-    grid-template-areas:
-    "text img"
-    ;
+
+    margin: 0%;
+    box-shadow: 10px 10px 20px -3px rgba(205, 53, 219, 0.2);
+    border:2px solid rgba(205, 53, 219 );
+    border-radius: 9px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
 }
 .imgTile{
+    display: grid;
     grid-area: img;
+
 }
+
 .userDetails{
-    grid-area: text
+    display: grid;
+    grid-area: deets;
+
+
 }
-.flipped > .imgTile{
-    grid-area: img;
+#userDeets{
+    display: flex;
+    flex-direction: column;
 }
-.flipped >.userDetails{
-    grid-area: text
+#userDeets h3{
+font-weight: 500;
+font-size: 20pt;
+word-wrap: break-word;
+padding: 3px;
+width: fit-content;
+background-color:#bc158a;
+color: white;
+position: relative;
+box-shadow: 4px 4px 2px -1px #72f4c09f;
+}
+.flipped .userTile{
+    width: 600px;
+    height: 400px;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-column-gap: 2rem;
+    grid-template-areas:
+    "doots imgz"
+    ;
+    justify-items: center;
+    margin: 0%;
+    box-shadow: 10px 10px 20px -3px rgba(205, 53, 219, 0.2);
+    border:2px solid rgba(205, 53, 219 );
+    border-radius: 9px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.flipped .imgTile{
+    display: grid;
+    grid-area: imgz;
+
+}
+.flipped .userDetails {
+    display: grid;
+    grid-area: doots;
+    text-align: left;
+    word-wrap: initial;
+
+
+}
+.findFriends{
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 50pt;
+    text-align: center;
+    color: rgb(69, 22, 106);
+    position: relative;
+    width: fit-content;
+
+
+}
+.deleteBtn{
+    background-color: white;
+
+    border: 2px solid  #72f4bf;
+    color: rgb(69, 22, 106);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: grid;
+
+    border-radius: 18px;
+    text-align: center;
+
+    height:fit-content;
+}
+
+
+.flipped .userDetails p {
+
+    width:fit-content;
+    background-color:#72f4bf ;
+    color: rgb(69, 22, 106);
+
+}
+.addBtn{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 18px;
+    width: fit-content;
+   color: rgb(69, 22, 106);
+
 }
