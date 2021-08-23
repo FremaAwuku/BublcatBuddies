@@ -11,7 +11,7 @@ const EditEventForm = () =>{
     const {eventId} = useParams()
 
     const event = useSelector(store => store.events[eventId])
-    const hostId = useSelector(store => store.session.user.id)
+    const hostId = useSelector(store => store.session?.user?.id)
 
 //issue with rendering the useState for eventName
     const [name, setName] = useState(event?.eventName)

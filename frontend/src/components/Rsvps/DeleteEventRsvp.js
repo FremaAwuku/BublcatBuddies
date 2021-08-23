@@ -6,7 +6,7 @@ import { deleteRsvp} from "../../store/rsvp"
 
 const DeleteEventRsvp = ({eventId, confirmed}) =>{
     const dispatch = useDispatch()
-    const userId = useSelector(state => state.session.user.id)
+    const userId = useSelector(state => state.session?.user?.id)
     const handleSubmit = async (e) =>{
         e.preventDefault()
 

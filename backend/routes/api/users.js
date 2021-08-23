@@ -26,6 +26,13 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
+    check('firstName')
+    .exists({ checkFalsy: true })
+    .isLength({ min: 2 })
+    .withMessage('Please provide a First Name with at least 2 characters.'),
+    check('profileImgUrl')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a Profile Image URL.'),
   handleValidationErrors,
 ];
 
@@ -52,7 +59,7 @@ asyncHandler(async (req, res) => {
 
 //GET SPECIFIC USERS BUDDY LIST
 router.get('/:id(\\d+)/bublcat-buddies',
-// requireAuth,
+requireAuth,
 asyncHandler(async (req, res) => {
   const buddyList = await BublcatBuddy.findAll({where:{userId:req.params.id}})
   return res.json(buddyList)
@@ -62,7 +69,7 @@ asyncHandler(async (req, res) => {
 
 //add friend to buddies list
 router.post('/:id(\\d+)/bublcat-buddies',
-// requireAuth,
+requireAuth,
 asyncHandler(async (req, res) => {
 
   const buddy = await BublcatBuddy.create(req.body)
@@ -74,12 +81,21 @@ asyncHandler(async (req, res) => {
 )
 )
 
-router.delete('/:id(\\d+)',
-requireAuth,
+router.delete('/:id(\\d+)/bublcat-buddies',
+ requireAuth,
 asyncHandler(async (req, res) => {
-  const buddyId = await BublcatBuddiesRepo.deleteBuddy(req.params.id);
-  //not sure if we need to send back th
-  return res.json({buddyId})
+  const {
+    userId,
+    buddyId
+  }=req.body
+
+  const buddy = await BublcatBuddy.findOne({where:{userId, buddyId}})
+  // const buddyId = await BublcatBuddiesRepo.deleteBuddy(req.params.id);
+
+      await BublcatBuddy.destroy({where:{userId,buddyId}})
+
+      //will       VVVVthis    be pulled from the req body??
+  return res.json({buddyId:buddy.id})
 
 }
 )
@@ -118,8 +134,8 @@ router.get('/:id(\\d+)/rsvps',
   '/',
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+    const { email, password, username , profileImgUrl, firstName} = req.body;
+    const user = await User.signup({ email, username, password , profileImgUrl,firstName});
 
     await setTokenCookie(res, user);
 

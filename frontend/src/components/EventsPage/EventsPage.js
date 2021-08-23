@@ -11,7 +11,7 @@ import styles from "./EventsPage.module.css"
 const EventsPage = () =>{
     const dispatch = useDispatch()
     const events = useSelector(state =>Object.values(state.events))
-    const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session?.user);
     let addEventButton;
     if(sessionUser){
         addEventButton = (

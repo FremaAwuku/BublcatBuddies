@@ -1,0 +1,74 @@
+.formTempHead{
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 30pt;
+    position: relative;
+    color: rgb(69, 22, 106);
+    justify-self: center;
+    text-align: center;
+
+  }
+.formTempCont {
+    box-sizing: border-box;
+    padding: 50px;
+    position: relative;
+    top: 60%;
+    left: 30%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+  .formTempForm  {
+    box-sizing: border-box;
+    background: rgba(69, 23, 105, 0.15);
+    height: 100%;
+    border-radius: 20px;
+    border-left: 1px solid rgba(145, 111, 145, 0.295);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(205, 53, 219, 0.2);
+    text-align: center;
+    position: relative;
+    bottom: 15%;
+    transition: all 0.2s ease-in-out;
+    width:600px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+  margin-left: 10em;
+  margin-right: 10em;
+
+  }
+.errors{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+  .formTempLabel{
+      box-sizing: border-box;
+    display: inline-block;
+    text-align: left;
+    float: left;
+
+
+  }
+.formTempInput{
+    box-sizing: border-box;
+    width: 100%;
+    float: right;
+    border-radius: 11px;
+    line-height: 25px;
+
+}
+
+.formTempBtn{
+    background-color: #72f4bf ;
+      box-sizing: border-box;
+      border-radius: 18px;
+
+      padding:10px;
+      width: 100%;
+      height: auto;
+     color: rgb(69, 22, 106);
+}

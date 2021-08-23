@@ -6,7 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session?.user);
 
   let sessionLinks;
   if (sessionUser) {
@@ -23,9 +23,12 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <nav>
-      {isLoaded && sessionLinks}
+    <nav className="navBarCont">
+    {isLoaded && sessionLinks}
       <ul className='navBar'>
+
+
+
 
         <li>
           <NavLink exact to="/" className='navLink' id="home">

@@ -7,7 +7,7 @@ import './SignupForm.css';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session?.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -32,66 +32,81 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
+    <div className="formTempCont">
+      <h1 className="formTempHead"> SIGN UP!</h1>
+      <form
+    className="formTempForm"
+    onSubmit={handleSubmit}>
+      <ul className="errors">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
+      <label className="formTempLabel">
         Email
         <input
+        className="formTempInput"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="formTempLabel">
         First Name
         <input
+        className="formTempInput"
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="formTempLabel">
         Username
         <input
+        className="formTempInput"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="formTempLabel">
         Password
         <input
+        className="formTempInput"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="formTempLabel">
         Confirm Password
         <input
+
+        className="formTempInput"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </label>
-      <label>
+      <label className="formTempLabel">
         Profile Image URL
         <input
+        className="formTempInput"
           type="text"
           value={profileImgUrl}
           onChange={(e) => setProfileImgUrl(e.target.value)}
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button
+      className="formTempBtn"
+      type="submit">Sign Up</button>
     </form>
+    </div>
+
   );
 }
 

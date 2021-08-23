@@ -2,29 +2,32 @@
 .footer{
 box-sizing: border-box;
         background: linear-gradient(45deg, #FC466B, #3F5EFB);
-        height: 10vh;
+        height: 7vh;
         position: fixed;
-        margin-top: 80px;
         left: 0;
-        bottom: -35px;
-        width: 100%;;
+        bottom:0;
+        width: 100%;
         color: white;
         text-align: center;
 
 }
 ul.footer{
+    box-sizing: border-box;
     list-style: none;
     display: flex;
     justify-content: space-around;
     color:white;
+   margin: 0;
+   font-family: 'Raleway', sans-serif;
 }
  .a-links{
     color:white;
 
-
+    font-family: 'Raleway', sans-serif;
 }
 li{
     text-decoration: none;
+    font-family: 'Raleway', sans-serif;
 
 }
 *{

@@ -11,16 +11,16 @@ const confirmed = useSelector(state =>Object.values(state.rsvps)).filter(rsvp =>
 const interested = (rsvps.length - confirmed.length)
 const dispatch = useDispatch()
 const users = useSelector(state =>Object.values(state.users))
-const sessionUser = useSelector(state=>state.session.user)
+const sessionUser = useSelector(state=>state.session?.user)
  useEffect(()=>{
 
 dispatch(getEventRsvps(eventId))
-console.log(rsvps.length,`<---did i get it`)
+
 
  },[dispatch,eventId])
 
 let noDubs
-if(rsvpedUser.includes(sessionUser.id)){
+if(rsvpedUser.includes(sessionUser?.id)){
     noDubs=(
         <span className="rsvpAct">
             <h3> you are RSVPed to this event </h3>
@@ -74,7 +74,7 @@ return(
         </h3>
     </span>
     {noDubs}
-    <h6>wtf</h6>
+
 
 
     </>

@@ -21,7 +21,7 @@ const AddEventForm = () =>{
     const updateAddress = (e) => setAddress (e.target.value)
     const updateDate = (e) => setDate (e.target.value)
 
-    const hostId = useSelector(state => state.session.user.id)
+    const hostId = useSelector(state => state.session?.user?.id)
 
     useEffect(()=>{
         const errors = []

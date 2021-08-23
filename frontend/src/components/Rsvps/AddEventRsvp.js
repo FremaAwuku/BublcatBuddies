@@ -8,7 +8,7 @@ import "./AddEventRsvp.css"
 const AddEventRsvp = ({eventId}) =>{
     const dispatch = useDispatch()
 
-    const userId = useSelector(state => state.session.user.id)
+    const userId = useSelector(state => state.session?.user?.id)
     const userRsvps = useSelector(state =>Object.values(state.rsvps))
 
     const [confirmed, setConfirmed] = useState(false)

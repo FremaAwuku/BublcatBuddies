@@ -13,7 +13,7 @@ import { getEventRsvps } from "../../store/rsvp"
 
     const eventId = useParams().eventId
     const event= useSelector(state =>state.events[eventId])
-    const user = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session?.user)
 
     useEffect(()=>{
         dispatch(getEventRsvps(eventId))

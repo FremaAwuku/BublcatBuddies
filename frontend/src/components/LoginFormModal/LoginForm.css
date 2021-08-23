@@ -1,0 +1,38 @@
+.formTempForm  {
+    box-sizing: border-box;
+    background: rgba(69, 23, 105, 0.15);
+    border-radius: 20px;
+    border-left: 1px solid rgba(145, 111, 145, 0.295);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(205, 53, 219, 0.2);
+
+width: auto;
+  }
+  .formTempBtn{
+    background-color: #72f4bf ;
+      box-sizing: border-box;
+      border-radius: 18px;
+
+      padding:10px;
+      width: 100%;
+      height: auto;
+     color: rgb(69, 22, 106);
+}
+.formTempLabel{
+    box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+  float: left;
+
+
+}
+.formTempInput{
+    box-sizing: border-box;
+    width: 100%;
+    float: right;
+    border-radius: 11px;
+    line-height: 25px;
+
+}
+

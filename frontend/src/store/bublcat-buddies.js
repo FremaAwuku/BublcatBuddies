@@ -12,7 +12,7 @@ const load = buddies =>({
     buddies
 })
 
-const addOneBuddy = buddy =>({
+const add = buddy =>({
     type:ADD_BUDDY,
     buddy
 })
@@ -46,7 +46,7 @@ export const addUserBuddy = (payload) => async dispatch => {
       });
       if(response.ok){
         const buddy = await response.json()
-        dispatch(addOneBuddy(buddy))
+        dispatch(add(buddy))
         return buddy
       }
 }

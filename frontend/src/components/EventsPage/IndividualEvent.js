@@ -6,7 +6,7 @@ const IndividualEvent = ({event})=> {
 
 // useEffect(()=>{
 //     dispatch(getEventRsvps(event.id))
-//     console.log(rsvps)
+//     
 // },[dispatch])
 
 //TODO Make only public events seen

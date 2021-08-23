@@ -11,7 +11,7 @@ const BublcatBuddies = () =>{
     const dispatch = useDispatch()
 
     const users = useSelector(state => Object.values(state.users))
-    const sessionUserId = useSelector(state => state.session.user.id)
+    const sessionUserId = useSelector(state => state.session?.user?.id)
      users.splice(sessionUserId -1,1)
     useEffect(()=>{
 
