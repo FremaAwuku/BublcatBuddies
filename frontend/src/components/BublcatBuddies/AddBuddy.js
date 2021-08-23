@@ -2,6 +2,7 @@ import { useEffect} from "react"
 import { useDispatch,useSelector } from "react-redux"
 import { addUserBuddy ,getUsersBuddies} from "../../store/bublcat-buddies"
 import DeleteButton from "./DeleteBuddy"
+import "./buddiesSect.css"
 const AddBuddy = ({buddyId}) =>{
 
     const userId = useSelector(state => state.session?.user?.id)
@@ -43,7 +44,9 @@ const AddBuddy = ({buddyId}) =>{
         <form
         onSubmit={handleSubmit}>
 
-            <button ><i class="far fa-check-square"><br/>ADD</i>
+            <button
+            className="addBtn"
+             ><i class="far fa-check-square"><br/>ADD</i>
 
 </button>
         </form>

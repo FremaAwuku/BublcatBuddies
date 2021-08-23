@@ -20,35 +20,38 @@ const BublcatBuddies = () =>{
 
 
 return(
-<div className="userContainer">
-<h1 className="findFriends">Find Friends!</h1>
+<div className="outerCont">
+    <div className="userContainer">
+    <h1 className="findFriends">Find Friends!</h1>
 
-<section className="tileSect">
-    {users?.map ((user,i)=>{
-        if(i % 2 === 0){
-            return(
+    <section className="tileSect">
+        {users?.map ((user,i)=>{
+            if(i % 2 === 0){
+                return(
 
-                <span key={user.id} className="userTile">
-                <UserTile user ={user}/>
-                </span>
-            )
-        }else{
-            return(
-                <span key={user.id+user.username} className="userTile" className="flipped">
-                <UserTile user ={user}/>
-                </span>
-            )
+                    <span key={user.id}>
+                    <UserTile user ={user}/>
+                    </span>
+                )
+            }else{
+                return(
+                    <span key={user.id+user.name} className="flipped">
+                    <UserTile user ={user}/>
+                    </span>
+                )
+            }
         }
-    }
 
 
-    )}
+        )}
 
-</section>
+    </section>
 
 
 
+    </div>
 </div>)
+
 
 }
 

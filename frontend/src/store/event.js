@@ -123,7 +123,7 @@ export const deleteEvent = (payload) => async dispatch => {
 
       });
       if(response.ok){
-        const deletedEvent = await response.json({})
+        await response.json({})
         dispatch(remove(eventId))
 
 }

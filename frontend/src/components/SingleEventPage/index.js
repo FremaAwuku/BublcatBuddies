@@ -30,7 +30,9 @@ import "./SingleEvent.css"
     }else if(user.id === event.hostId){
         editButton = (
         <Link to={`/events/${event.id}/edit`}>
-        <button>Edit Event</button>
+        <button
+    className='addEventBtn'
+        >Edit Event</button>
         </Link>
         )
     }
@@ -44,8 +46,11 @@ let privateEvent
 
 return(
 <>
+
 <div
+
 className="indEventSect">
+
     <div
     className="eventTile"
    >
@@ -56,6 +61,7 @@ className="indEventSect">
 className="rsvpTile"
 >
 <RsvpsOnEvents eventId ={eventId}/>
+{editButton}
 </div>
 
 

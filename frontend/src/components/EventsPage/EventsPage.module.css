@@ -36,7 +36,7 @@
     display: grid;
     grid-template-columns: 400px 400px 400px;
     grid-gap:35px;
-    
+
     margin-left: 20%;
     margin-bottom: 5%;
     width: fit-content;

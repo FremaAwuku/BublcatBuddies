@@ -1,7 +1,7 @@
 import { useEffect} from "react"
 import { useDispatch,useSelector } from "react-redux"
 import { deleteBuddy } from "../../store/bublcat-buddies"
-
+import "./buddiesSect.css"
 const DeleteButton =({buddyId}) =>{
     const userId = useSelector(state => state.session?.user?.id)
     const dispatch = useDispatch()
@@ -20,10 +20,12 @@ const DeleteButton =({buddyId}) =>{
     return(
         <form
         onSubmit={handleSubmit}>
+            <i class="fas fa-user-slash"></i> <br></br>
             <button
+            className="deleteBtn"
 
             >
-            <i class="fas fa-user-slash"></i> <br></br>
+
             Remove Friend
             </button>
         </form>

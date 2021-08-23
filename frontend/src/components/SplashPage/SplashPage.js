@@ -7,15 +7,15 @@ import IndividualEvent from '../EventsPage/IndividualEvent';
 import {getEvents} from '../../store/event'
 import{getUserRsvps} from '../../store/rsvp'
 import { getUsersBuddies} from "../../store/bublcat-buddies"
+import UserTile from '../BublcatBuddies/UserTile'
 
-
-
+import "./SplashPage.css"
  const  SplashPage = () =>{
     const dispatch = useDispatch()
     //OBJ OF USER
 
     const events = useSelector(state => Object.values(state.events))
-    const eventObj = useSelector(state => state.events)
+
     const sessionUser = useSelector(state => state.session?.user)
     const loggedInUser = useSelector(state => state.users[sessionUser?.id])
     const rsvpEvents = useSelector(state=>Object.values(state.rsvps))
@@ -57,8 +57,6 @@ import { getUsersBuddies} from "../../store/bublcat-buddies"
             <section className="userProf">
             <h1>HELLO {loggedInUser?.firstName}! </h1>
             <img src={loggedInUser?.profileImgUrl} style={{maxWidth:300}}></img>
-            <span>
-            </span>
             </section>
         )
 
@@ -67,7 +65,7 @@ import { getUsersBuddies} from "../../store/bublcat-buddies"
         <div className="splashCont">
            {userProfile}
 
-        <section className="eventsSect">
+        <section className="eventSect">
             {events?.map((event  =>{
 
             if(rsvpEvents.includes(event.id)){
@@ -83,20 +81,13 @@ import { getUsersBuddies} from "../../store/bublcat-buddies"
             }
         }))}
         </section>
-        
+
         <section className="buddySect">
-        <h3> {`${loggedInUser?.firstName}'s Bublcat Buddies` }</h3>
+        <h2> {`${loggedInUser?.firstName}'s Bublcat Buddies` }</h2>
         {users?.map((user =>{
             if(userBuddies.includes(user.id)){
                 return(
-            <ul key={user.id}>
-                <li>
-                <img className="imgTile" src={user.profileImgUrl} alt="user tile" style={{width:250}}/>
-                <span className="userDetails">
-                    <h3>{user.username}</h3>
-                </span>
-                </li>
-            </ul>
+            <UserTile id="splash" user={user} style={{width:200 ,height:200}}/>
                 )
             }
         }))}

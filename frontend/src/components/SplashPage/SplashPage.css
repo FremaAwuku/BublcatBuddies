@@ -1,3 +1,30 @@
-.splachCont{
-    
+.splashCont{
+    display: flex;
+    flex-wrap: row wrap;
+    position: relative;
+    width: fit-content;
+
+    /* grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "prof eve bud"; */
+}
+.userProf{
+    /* display: grid;
+    grid-area: prof; */
+}
+.eventSect{
+    /* display: grid;
+    grid-area: eve; */
+}
+.buddySect{
+    padding: 20px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto;
+    width: 600;
+    overflow: scroll;
+
+
+}
+#splash{
+    width:250
 }
