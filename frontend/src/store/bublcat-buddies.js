@@ -12,14 +12,14 @@ const load = buddies =>({
     buddies
 })
 
-const addOneBuddy = buddy =>({
+const add = buddy =>({
     type:ADD_BUDDY,
     buddy
 })
 
-const remove = buddy =>({
+const remove = buddyId =>({
 type:REMOVE_BUDDY,
-buddy
+buddyId
 })
 
 export const getUsersBuddies = (userId) => async dispatch =>{
@@ -46,18 +46,28 @@ export const addUserBuddy = (payload) => async dispatch => {
       });
       if(response.ok){
         const buddy = await response.json()
-        dispatch(addOneBuddy(buddy))
+        dispatch(add(buddy))
         return buddy
       }
 }
 export const deleteBuddy = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/bublcat-buddies/${payload.id}`, {
+    const {
+        userId,
+        buddyId
+    }= payload
+    const data = {
+        userId,
+        buddyId
+    }
+    const response = await csrfFetch(`/api/users/${userId}/bublcat-buddies`, {
         method: 'DELETE',
+        body: JSON.stringify(data)
 
       });
       if(response.ok){
-        const buddy = await response.json()
-        dispatch(remove(buddy))
+        const deletedBuddy = await response.json({})
+        const oldBuddy = deletedBuddy.buddyId
+        dispatch(remove(oldBuddy))
 
 }
 }
@@ -90,7 +100,7 @@ switch(action.type){
 
     case REMOVE_BUDDY:
          newState = {...state};
-        delete newState[action.buddy.id]
+        delete newState[action.buddyId]
         return newState
 
     default:

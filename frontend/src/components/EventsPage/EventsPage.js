@@ -11,12 +11,12 @@ import styles from "./EventsPage.module.css"
 const EventsPage = () =>{
     const dispatch = useDispatch()
     const events = useSelector(state =>Object.values(state.events))
-    const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session?.user);
     let addEventButton;
     if(sessionUser){
         addEventButton = (
         <form method="get" action="/events/add" className={styles.btnContainer}>
-            <button className={styles.addEventBtn}>Add An Event </button>
+            <button className={styles.addEventBtn}>ADD EVENT </button>
         </form>)
                 }
 
@@ -28,11 +28,9 @@ const EventsPage = () =>{
 return(
     <div className={styles.container} >
         <main className={styles.landing} >
-            <img  src="http://www.vectorfree.com/media/vectors/sixties-wallpaper.jpg"></img>
-                <h1 style={{textAlign:"center"}} > Explore Events in Atlanta</h1>
-                <h2  style={{textAlign:"center"}}>Explore Events in Atlanta</h2>
-        </main>
 
+        </main>
+        <h1 className={styles.landing}>Explore Events in Atlanta</h1>
             {addEventButton}
 
 

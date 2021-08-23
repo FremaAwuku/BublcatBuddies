@@ -6,7 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session?.user);
 
   let sessionLinks;
   if (sessionUser) {
@@ -15,17 +15,26 @@ function Navigation({ isLoaded }){
     );
   } else {
     sessionLinks = (
-      <>
+      <div className="loginActions">
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
-      </>
+        <NavLink
+        className="signUp"
+        to="/signup">
+          <button
+          className="paw-btn-signup">
+          Sign Up
+            </button></NavLink>
+      </div>
     );
   }
 
   return (
-    <nav>
-      {isLoaded && sessionLinks}
+    <nav className="navBarCont">
+    {isLoaded && sessionLinks}
       <ul className='navBar'>
+
+
+
 
         <li>
           <NavLink exact to="/" className='navLink' id="home">

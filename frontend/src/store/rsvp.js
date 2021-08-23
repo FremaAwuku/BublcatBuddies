@@ -99,7 +99,7 @@ export const deleteRsvp = (payload) => async dispatch => {
       if(response.ok){
         const deletedRsvp = await response.json({})
         const rsvpId = deletedRsvp.rsvpId
-        console.log(rsvpId, `<store backend rsvp id`)
+        
         dispatch(remove(rsvpId))
 }
 }

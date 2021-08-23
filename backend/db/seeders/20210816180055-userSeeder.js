@@ -72,7 +72,7 @@ module.exports = {
     firstName: "Antonio",
     email: "antonio.moricci@gmail.com",
     hashedPassword: bcrypt.hashSync('AntonioMoricci364'),
-    profileImgUrl: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/cat_people_vs_dog_people_slideshow/photolibrary_rm_photo_of_older_man_with_cat.jpg',
+    profileImgUrl: 'https://media.istockphoto.com/photos/cheerfull-senior-man-with-cat-isolated-on-white-picture-id649248614?k=6&m=649248614&s=612x612&w=0&h=SvY8XPtWJkTnuKKM0xjj3bx-oQomofN9KBn4GOqahmA=',
     createdAt: new Date(),
     updatedAt: new Date()
 

@@ -1,0 +1,32 @@
+.indEventSect{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: "event rsvp";
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 30px;
+    position: relative;
+}
+.eventTile{
+    display: grid;
+    grid: event;
+    padding: 30px;
+    position: relative;
+}
+.rsvpTile{
+    display: grid;
+    grid: rsvp;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    top:150px
+
+}
+
+.rsvpForm>label{
+    align-self: center;
+}
+.radio{
+    display: flex;
+    justify-content: center;
+}

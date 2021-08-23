@@ -39,8 +39,8 @@ module.exports = {
 },
 {
 eventName: "Cat Cafe Clique",
-description: "Private Reading Group for Cat",
-eventImageUrl: 'http://images6.fanpop.com/image/photos/41000000/Reading-have-fun-41031970-600-401.jpg',
+description: "Montly Exclusive Cat Cafe Meet Up where we discuss the trends of catology",
+eventImageUrl: 'https://www.ajc.com/resizer/Ak4jj5GId2uDx5_MsK6ISPF0zkA=/814x458/cloudfront-us-east-1.images.arcpublishing.com/ajc/A2WW4LKLDLAJTOOXF6WITQAZSI.jpg',
 hostId: 7,
 isPrivate: true,
 address: "640 Lenox Rd Buckhead,GA 30325",

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { restoreUser } from "../../store/session";
+import './Navigation.css'
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
-  const username = useSelector(state => state.session.user.username)
+  const username = useSelector(state => state.session?.user?.username)
 
   const openMenu = () => {
     if (showMenu) return;
@@ -15,7 +16,7 @@ function ProfileButton({ user }) {
 
   useEffect(() => {
     dispatch(restoreUser())
-    console.log(username)
+
     if (!showMenu) return;
 
     const closeMenu = () => {
@@ -36,17 +37,16 @@ function ProfileButton({ user }) {
     <>
       <button className="paw-btn" onClick={openMenu}>
         {username}
-      <i className="fas fa-paw"></i>
+        <i class="fas fa-user"></i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <a href="/">
-            <img src={user.profileImgUrl} alt="users profile"/>
-          </a>
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button
+            className="paw-btn-logout"
+            onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}

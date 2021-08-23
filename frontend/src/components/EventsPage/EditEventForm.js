@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { editEvent, getEvents } from "../../store/event"
 import DeleteEvent from "./DeleteEvent"
 
+import './AddEventForm.css'
 const EditEventForm = () =>{
     const dispatch = useDispatch()
     const history = useHistory()
@@ -11,7 +12,7 @@ const EditEventForm = () =>{
     const {eventId} = useParams()
 
     const event = useSelector(store => store.events[eventId])
-    const hostId = useSelector(store => store.session.user.id)
+    const hostId = useSelector(store => store.session?.user?.id)
 
 //issue with rendering the useState for eventName
     const [name, setName] = useState(event?.eventName)
@@ -70,17 +71,27 @@ const EditEventForm = () =>{
 
 
 return(
-    <section className="editSect">
-        <h1>{`Edit ${event?.eventName}`}</h1>
+    <section
+    className="addEventForm"
+    id="edit"
+    >
+        <h1
+        className="newEvent"
+        >{`Edit ${event?.eventName}`}</h1>
         <ul className="errors">
             {validationErrors && validationErrors.map(errors=>
             <li key={errors}>{errors}</li>)}
         </ul>
-        <form onSubmit={handleSubmit} className="editForm">
+        <form
+
+        onSubmit={handleSubmit} className="editForm">
         <span>
-            <label htmlFor="eventName"
-            >Event Name:</label>
+            <label
+            className="formTempLabel"
+            htmlFor="eventName"
+            >Event Name:
             <input
+            className="formTempInput"
             type="text"
             required
             placeholder="Event Name"
@@ -88,27 +99,35 @@ return(
             value={name}
             onChange={updateName}
             />
+            </label>
         </span>
 
         <span>
-            <label htmlFor="description"
-            >Event Description:</label>
+            <label
+            className="formTempLabel"
+            htmlFor="description"
+            >Event Description:
             <input
             type="text"
+            className="formTempInput"
             required
             placeholder="Event Description"
             name="description"
             value={description}
             onChange={updateDescription}
             />
+            </label>
         </span>
 
 
         <span>
-            <label htmlFor="eventImageUrl"
-            >Insert Event Image URL:</label>
+            <label
+            className="formTempLabel"
+            htmlFor="eventImageUrl"
+            >Insert Event Image URL:
             <input
             type="text"
+            className="formTempInput"
             required
             placeholder="Event Image"
             name="eventImageUrl"
@@ -116,10 +135,17 @@ return(
             onChange={updateImage}
             >
             </input>
+            </label>
         </span>
 
         <span>
-            <label >
+            <label
+            className="formTempLabel"
+            >
+            Is this Event Public or Private?
+            <label
+
+            >
 
             Public
             <input
@@ -130,7 +156,9 @@ return(
             checked = {isPrivate === false}
             />
             </label>
-            <label>
+            <label
+
+            >
             Private
             <input
             type="radio"
@@ -140,14 +168,18 @@ return(
             checked = {isPrivate === true}
             />
             </label>
+            </label>
         </span>
 
 
         <span>
-            <label htmlFor="address"
-            >Event Location:</label>
+            <label
+            className="formTempLabel"
+            htmlFor="address"
+            >Event Location:
             <input
             type="text"
+            className="formTempInput"
             required
             placeholder="Event Address"
             name="address"
@@ -155,13 +187,17 @@ return(
             onChange={updateAddress}
             >
             </input>
+            </label>
         </span>
 
         <span>
-            <label htmlFor="eventDate"
-            >Date of Event:</label>
+            <label
+            className="formTempLabel"
+            htmlFor="eventDate"
+            >Date of Event:
             <input
             type="date"
+            className="formTempInput"
             required
             placeholder="Event Date"
             name="eventDate"
@@ -169,8 +205,10 @@ return(
             onChange={updateDate}
             >
             </input>
+            </label>
         </span>
         <button
+        className="formBttn"
         type="submit"
         disabled = {validationErrors.length > 0}
 
@@ -179,7 +217,7 @@ return(
         </button>
 
         </form>
-        <DeleteEvent event={event}/>
+        <DeleteEvent   event={event}/>
     </section>
 )
 

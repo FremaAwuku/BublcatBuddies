@@ -21,7 +21,7 @@ const AddEventForm = () =>{
     const updateAddress = (e) => setAddress (e.target.value)
     const updateDate = (e) => setDate (e.target.value)
 
-    const hostId = useSelector(state => state.session.user.id)
+    const hostId = useSelector(state => state.session?.user?.id)
 
     useEffect(()=>{
         const errors = []
@@ -69,9 +69,11 @@ const AddEventForm = () =>{
                 {validationErrors && validationErrors.map(errors=>
                 <li key={errors}>{errors}</li>)}
             </ul>
-                <label htmlFor="eventName"
-                >Event Name:</label>
-                <input
+                <label
+                className="formTempLabel"
+                htmlFor="eventName"
+                >Event Name:
+                <input className="formTempInput"
                 type="text"
                 required
                 placeholder="Event Name"
@@ -79,12 +81,15 @@ const AddEventForm = () =>{
                 value={name}
                 onChange={updateName}
                 />
+                </label>
             </span>
 
             <span>
-                <label htmlFor="description"
-                >Event Description:</label>
-                <input
+                <label
+                className="formTempLabel"
+                htmlFor="description"
+                >Event Description:
+                <input className="formTempInput"
                 type="text"
                 required
                 placeholder="Event Description"
@@ -92,39 +97,56 @@ const AddEventForm = () =>{
                 value={description}
                 onChange={updateDescription}
                 />
-            </span>
-            <span>
-
-                <label >
-
-                Public
-                <input
-                type="radio"
-                value="public"
-                name="Public"
-                onChange={()=> setIsPrivate(false)}
-                checked = {isPrivate === false}
-                />
-                </label>
-                <label>
-                Private
-                <input
-                type="radio"
-                value="private"
-                name="Private"
-                onChange={(e)=> setIsPrivate(true)}
-                checked = {isPrivate === true}
-                />
                 </label>
             </span>
+            <span>
+                    <label
+                className="formTempLabel"
+                className="privacy
+                "
+                    >
+                        Is this a Public Or Private Event?
+                        <br/>
+
+
+                    <label
+                    className="formTempLabel"
+                    >
+
+                        Public
+                        <input className="formTempInput"
+                        type="radio"
+                        value="public"
+                        name="Public"
+                        onChange={()=> setIsPrivate(false)}
+                        checked = {isPrivate === false}
+                        />
+                        </label>
+                        <label
+                                        className="formTempLabel"
+                        >
+                        Private
+                        <input className="formTempInput"
+                        type="radio"
+                        value="private"
+                        name="Private"
+                        onChange={(e)=> setIsPrivate(true)}
+                        checked = {isPrivate === true}
+                        />
+</label>
+                    </label>
+
+            </span>
 
 
 
             <span>
-                <label htmlFor="eventImageUrl"
+                <label
+                className="formTempLabel"
+                htmlFor="eventImageUrl"
                 className="imgLabel"
-                >Insert Event <br></br>Image URL:</label>
-                <input
+                >Event Image URL:
+                <input className="formTempInput"
                 type="text"
                 required
                 placeholder="Event Image"
@@ -133,14 +155,17 @@ const AddEventForm = () =>{
                 onChange={updateImage}
                 >
                 </input>
+                </label>
             </span>
 
 
 
             <span>
-                <label htmlFor="address"
-                >Event Location:</label>
-                <input
+                <label
+                className="formTempLabel"
+                htmlFor="address"
+                >Event Location:
+                <input className="formTempInput"
                 type="text"
                 required
                 placeholder="Event Address"
@@ -149,12 +174,15 @@ const AddEventForm = () =>{
                 onChange={updateAddress}
                 >
                 </input>
+                </label>
             </span>
 
             <span>
-                <label htmlFor="eventDate"
-                >Date of Event:</label>
-                <input
+                <label
+                className="formTempLabel"
+                htmlFor="eventDate"
+                >Date of Event:
+                <input className="formTempInput"
                 type="date"
                 required
                 placeholder="Event Date"
@@ -163,6 +191,7 @@ const AddEventForm = () =>{
                 onChange={updateDate}
                 >
                 </input>
+                </label>
             </span>
             <button
             type="submit"

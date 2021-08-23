@@ -1,9 +1,6 @@
-body{
-    margin-left:3em;
-    margin-right: 3em;
-}
+
 section.tileSect {
-    background-color: blue;
+    
     box-sizing: border-box;
     ;
     grid-template-columns: 1fr 900px;

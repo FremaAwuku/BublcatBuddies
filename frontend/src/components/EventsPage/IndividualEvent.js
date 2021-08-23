@@ -1,28 +1,35 @@
-// import { useEffect } from "react"
+
 import {Link} from "react-router-dom"
-// import { useDispatch,useSelector } from "react-redux"
-// import { getEventRsvps } from "../../store/rsvp"
+import "./EventsTile.css"
+
+
 const IndividualEvent = ({event})=> {
 
-// useEffect(()=>{
-//     dispatch(getEventRsvps(event.id))
-//     console.log(rsvps)
-// },[dispatch])
 
 //TODO Make only public events seen
     // if(!event.isPrivate){
         return(
         <>
-            <span>
-
+            <span className="dataTile">
             <Link to={`/events/${event.id}`}>
-            <img src={event.eventImageUrl} alt="event visual description" style={{width:400, height:"auto" }}></img>
+            <img
+            className="eventImg"
+            src={event.eventImageUrl} alt="event visual description" ></img>
             </Link>
-            <h2>{event.eventName}</h2>
-            <h4>Event Host Username: {event.User.username}</h4>
+            <Link to={`/events/${event.id}`}>
+            <h2
+            className="eventName"
+            >{event.eventName}</h2>
+            </Link>
+            <div className="eventDeets">
+            <h4 id="host">Hosted By: {event.User.username}</h4>
             <p>{event.description}</p>
-            <p>{event.address}</p>
-            <p>{event.eventDate}</p>
+            <br></br>
+            <p id="addy">{event.address}</p>
+
+            <p id="date">{event.eventDate}</p>
+            </div>
+
             </span>
         </>
         )

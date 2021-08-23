@@ -4,37 +4,44 @@
 .addEventBtn{
     background-color: white;
 
-    border: 2px solid  rgb(224,92,44);
-    color: rgb(224,92,44);
+    border: 2px solid  #72f4bf;
+    color: rgb(69, 22, 106);
     padding: 5px;
     text-align: center;
     text-decoration: none;
     display: grid;
-    font-size: 30px;
-    border-radius: 12px;
+    font-size: 20px;
+    border-radius: 18px;
     text-align: center;
-    grid-area: btn;
-    font-family: 'Timmana', sans-serif;
-    height:45px
+
+    height:fit-content;
+
 
 
 }
 .btnContainer{
-    display: grid;
-    grid-template-areas: ". . btn . .";
-    grid-template-columns: 1fr 1fr auto 1fr 1fr;
+    display: flex;
 }
 .container{
     box-sizing: border-box;
-    margin-left: 7em;
-    margin-right: 7em ;
     margin-top: 0px;
     margin-bottom: 0px;
+    overflow-block: visible;
+    height: fit-content;
+
+
 }
 .mainContainer{
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 400px 400px 400px;
+    grid-gap:35px;
+    
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: fit-content;
+    padding: 0%;
+
 
 
 }
@@ -50,24 +57,18 @@
 
 }
 
-.landing{
-    box-sizing: border-box;
-position: relative;
-margin-bottom: 0px;
-height:300px ;
-}
+main.landing{
+    display: flex;
 
-.landing>h1{
-    box-sizing: border-box;
-    color:rgb(224,92,44);;
-    font-family: 'Shrikhand', cursive;
-    font-size: 100px;
+}
+h1.landing{
+
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
     font-weight: 500;
-    margin: 0px;
-    width: 100%;
-    position: relative;
-    bottom:250px;
-    text-shadow: -1px -1px 0 rgb(80, 1, 1), 1px -1px 0 rgba(41, 39, 39, 0.233), -1px 1px 0 rgb(202, 202, 202), 1px 1px 0 rgb(202, 202, 202);
+    font-size: 50pt;
+    text-align: center;
+    color: rgb(69, 22, 106);
+    margin: 0;
 }
 .landing>h2{
     box-sizing: border-box;

@@ -1,35 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Timmana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;500;900&display=swap');
 *{
-
     box-sizing: border-box;
-
 
 }
 nav{
     box-sizing: border-box;
 
-    background: linear-gradient(to right, #45166a, #83157b 75%, #bc158a);
+    background:
+    rgb(67, 43, 141);
     list-style-type: none;
     margin: 0;
     padding: 0;
 
 
-}
-
-form{
-    box-sizing: border-box;
-    padding: 10px;
-}
-button{
-    box-sizing: border-box;
-   box-sizing: border-box;
 
 }
+
+
 
 li  .navLink{
 
-    gap: 15px;
+    gap: 35px;
     box-sizing: border-box;
 
     display: flex;
@@ -44,59 +36,115 @@ nav ul{
     margin:0;
     padding:0;
     display: flex;
-    height: 40px;
+    height: auto;
     list-style-type: none;
     justify-content: flex-end;
 }
 .navLink {
-
+    box-sizing: border-box;
     color: white;
     font-family: 'Raleway', sans-serif;
     font-size: 400;
     justify-content: right;
     float: right;
     display: block;
-    padding-right: 10px;
-    padding-left:10px;
     text-decoration: none;
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 10px;
 
 
 
 }
+.navLink#home{
+padding-top: 25px;
+}
+.navLink#buddies{
+    padding-right: 15px;
+    }
 .paw-btn{
     background-color: #72f4bf ;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 1px solid rgb(129, 53, 18, .5);
     padding:2px;
-    width: auto;
-    height: auto;
+    width: 20%;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
 
 
 
 
 }
-.navBar{
+.navBarCont{
+    display: grid;
+    grid-template-areas:"profile ." ;
+    line-height: 45px;
+}
+.profile-dropdown{
+
     display: flex;
+    flex-direction: column;
+     align-content: space-between;
+     width: fit-content;
+     position: relative;
+     left: 75%;
+}
+.profile-dropdown>li{
+    color: white;
+}
+.paw-btn-logout{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid rgb(129, 53, 18, .5);
+    padding-right:10px;
+    width: fit-content;
+    height: 25px;
+    color: rgb(69, 22, 106);
+    justify-self: center;
+    float: center;
+    margin-right: 5px;
 
 }
-li> #home.navLink{
-
-
-
+.paw-btn-login{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid rgb(129, 53, 18, .5);
+    padding-right:10px;
+    width: fit-content;
+    height: 25px;
+    color: rgb(69, 22, 106);
+    margin-left: 15px;
+    margin-top: 25px;
+    grid-row-start: 1 ;
+    grid-column: 1;
+}
+.paw-btn-signup{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid rgb(129, 53, 18, .5);
+    padding-right:10px;
+    width: fit-content;
+    height: 25px;
+    color: rgb(69, 22, 106);
+    margin-left: 15px;
+    margin-top: 25px;
+    grid-row-start: 1 ;
+    grid-column: 1;
 
 }
-li> #event.navLink{
-
-
-
-
-    }
-
-li> #bublcat.navLink{
-
-
-
-
-
-    }
+.signUp{
+    grid-row-start: 1 ;
+    grid-column: 1;
+    color: white;
+}
+.loginAction{
+    box-sizing: border-box;
+    display: flex;
+    max-width: fit-content;
+}

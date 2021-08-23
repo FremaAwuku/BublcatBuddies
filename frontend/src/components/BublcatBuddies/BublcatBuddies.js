@@ -1,8 +1,7 @@
 
 import {  useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import { NavLink, Route, useParams } from 'react-router-dom';
-import { Carousel } from 'react-responsive-carousel';
+
 import { useDispatch } from 'react-redux'
 import { getUsers } from '../../store/user';
 import UserTile from './UserTile';
@@ -11,7 +10,7 @@ const BublcatBuddies = () =>{
     const dispatch = useDispatch()
 
     const users = useSelector(state => Object.values(state.users))
-    const sessionUserId = useSelector(state => state.session.user.id)
+    const sessionUserId = useSelector(state => state.session?.user?.id)
      users.splice(sessionUserId -1,1)
     useEffect(()=>{
 
@@ -35,7 +34,7 @@ return(
             )
         }else{
             return(
-                <span key={user.id} className="userTile" className="flipped">
+                <span key={user.id+user.username} className="userTile" className="flipped">
                 <UserTile user ={user}/>
                 </span>
             )

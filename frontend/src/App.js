@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch} from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
-
 import Navigation from "./components/Navigation";
 
 
@@ -17,10 +16,11 @@ import Footer from "./components/Footer";
 import EditEventForm from "./components/EventsPage/EditEventForm";
 import SplashPage from "./components/SplashPage";
 import { getUsers } from "./store/user";
+import { getUsersBuddies} from "./store/bublcat-buddies"
 import BublcatBuddies from "./components/BublcatBuddies/BublcatBuddies";
 
 function App() {
-
+  const userId = useSelector(state => state.session?.user?.id)
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -28,10 +28,12 @@ function App() {
 
     dispatch(getUsers())
     dispatch(getEvents())
+    dispatch(getUsersBuddies(userId))
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
 
 
-  }, [dispatch]);
+
+  }, [dispatch,userId]);
 
   return (
     <>
@@ -61,7 +63,7 @@ function App() {
             </Route>
             <Route path="/bublcat-buddies">
               <BublcatBuddies/>
-              
+
             </Route>
           </Switch>
 

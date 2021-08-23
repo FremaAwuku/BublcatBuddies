@@ -2,18 +2,18 @@ import { useParams } from "react-router"
 import { useSelector,useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import RsvpsOnEvents from "../Rsvps/RsvpsOnEvents"
-
+import IndividualEvent from "../EventsPage/IndividualEvent"
 
 import { useEffect } from "react"
 import { getEventRsvps } from "../../store/rsvp"
-
+import "./SingleEvent.css"
  const SingleEventPage = () =>{
 
     const dispatch = useDispatch()
 
     const eventId = useParams().eventId
     const event= useSelector(state =>state.events[eventId])
-    const user = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session?.user)
 
     useEffect(()=>{
         dispatch(getEventRsvps(eventId))
@@ -44,24 +44,22 @@ let privateEvent
 
 return(
 <>
+<div
+className="indEventSect">
+    <div
+    className="eventTile"
+   >
+       <IndividualEvent event={event}/>
+       </div>
 
-    <h2>{event.eventName}</h2>
-    <img src={event.eventImageUrl}/>
-    {editButton}
-    <h3>
-        Event Description:
-        {privateEvent}
-        <p>
-
-            {event.description}
-        </p>
-    </h3>
-            <p>{event.address}</p>
-            <p>{event.eventDate}</p>
-
-    <RsvpsOnEvents eventId ={eventId}/>
+<div
+className="rsvpTile"
+>
+<RsvpsOnEvents eventId ={eventId}/>
+</div>
 
 
+    </div>
 
 
 
