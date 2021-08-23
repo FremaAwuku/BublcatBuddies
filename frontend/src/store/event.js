@@ -115,13 +115,16 @@ export const editEvent = (payload) => async dispatch => {
 }
 }
 export const deleteEvent = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/events/${payload.id}`, {
+        const {eventId}= payload
+        const data = {eventId}
+    const response = await csrfFetch(`/api/events/${eventId}`, {
         method: 'DELETE',
+        body: JSON.stringify(data)
 
       });
       if(response.ok){
-        const event = await response.json()
-        dispatch(remove(payload.id))
+        const deletedEvent = await response.json({})
+        dispatch(remove(eventId))
 
 }
 }

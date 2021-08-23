@@ -41,13 +41,12 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <a href="/">
-            <img src={user.profileImgUrl} alt="users profile"/>
-          </a>
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button
+            className="paw-btn-logout"
+            onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}

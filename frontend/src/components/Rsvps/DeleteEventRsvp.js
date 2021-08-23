@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux"
 
 import { deleteRsvp} from "../../store/rsvp"
 
-
+import"./Rsvp.css"
 const DeleteEventRsvp = ({eventId, confirmed}) =>{
     const dispatch = useDispatch()
     const userId = useSelector(state => state.session?.user?.id)
@@ -23,8 +23,11 @@ const DeleteEventRsvp = ({eventId, confirmed}) =>{
     return(
         <>
         <form
+
         onSubmit={handleSubmit}>
-        <button type="submit">
+        <button
+        className="formBttn"
+        type="submit">
             Cancel RSVP
         </button>
         </form>

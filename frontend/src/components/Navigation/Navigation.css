@@ -7,7 +7,8 @@
 nav{
     box-sizing: border-box;
 
-    background: linear-gradient(to right, #45166a, #83157b 75%, #bc158a);
+    background:
+    rgb(67, 43, 141);
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -50,14 +51,17 @@ nav ul{
     text-decoration: none;
     padding-left: 25px;
     padding-right: 5px;
-    padding-top: 1px;
+    padding-top: 10px;
 
 
 
 }
 .navLink#home{
-padding-top: 15px;
+padding-top: 25px;
 }
+.navLink#buddies{
+    padding-right: 15px;
+    }
 .paw-btn{
     background-color: #72f4bf ;
     box-sizing: border-box;
@@ -68,7 +72,7 @@ padding-top: 15px;
     height: 25px;
     margin-top: 10px;
     margin-left: 15px;
-
+    margin-bottom: 10px;
 
 
 
@@ -78,4 +82,69 @@ padding-top: 15px;
     display: grid;
     grid-template-areas:"profile ." ;
     line-height: 45px;
+}
+.profile-dropdown{
+
+    display: flex;
+    flex-direction: column;
+     align-content: space-between;
+     width: fit-content;
+     position: relative;
+     left: 75%;
+}
+.profile-dropdown>li{
+    color: white;
+}
+.paw-btn-logout{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid rgb(129, 53, 18, .5);
+    padding-right:10px;
+    width: fit-content;
+    height: 25px;
+    color: rgb(69, 22, 106);
+    justify-self: center;
+    float: center;
+    margin-right: 5px;
+
+}
+.paw-btn-login{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid rgb(129, 53, 18, .5);
+    padding-right:10px;
+    width: fit-content;
+    height: 25px;
+    color: rgb(69, 22, 106);
+    margin-left: 15px;
+    margin-top: 25px;
+    grid-row-start: 1 ;
+    grid-column: 1;
+}
+.paw-btn-signup{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid rgb(129, 53, 18, .5);
+    padding-right:10px;
+    width: fit-content;
+    height: 25px;
+    color: rgb(69, 22, 106);
+    margin-left: 15px;
+    margin-top: 25px;
+    grid-row-start: 1 ;
+    grid-column: 1;
+
+}
+.signUp{
+    grid-row-start: 1 ;
+    grid-column: 1;
+    color: white;
+}
+.loginAction{
+    box-sizing: border-box;
+    display: flex;
+    max-width: fit-content;
 }

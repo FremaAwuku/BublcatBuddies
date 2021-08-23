@@ -1,6 +1,7 @@
 import { useEffect} from "react"
 import { useDispatch,useSelector } from "react-redux"
 import { addUserBuddy ,getUsersBuddies} from "../../store/bublcat-buddies"
+import DeleteButton from "./DeleteBuddy"
 const AddBuddy = ({buddyId}) =>{
 
     const userId = useSelector(state => state.session?.user?.id)
@@ -31,7 +32,10 @@ const AddBuddy = ({buddyId}) =>{
     if(userBuddies.includes(buddyId)){
 
         return(
+            <>
             <p> You Are Already Friends</p>
+            <DeleteButton buddyId={buddyId}/>
+            </>
         )
 
     }

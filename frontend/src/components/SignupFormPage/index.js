@@ -37,7 +37,7 @@ function SignupFormPage() {
       <form
     className="formTempForm"
     onSubmit={handleSubmit}>
-      <ul className="errors">
+      <ul className="errors" id="signUp">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <label className="formTempLabel">
@@ -103,6 +103,7 @@ function SignupFormPage() {
       </label>
       <button
       className="formTempBtn"
+      id="signUp"
       type="submit">Sign Up</button>
     </form>
     </div>

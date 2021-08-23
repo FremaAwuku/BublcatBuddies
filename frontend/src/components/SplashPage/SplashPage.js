@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, Route, useParams, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import IndividualEvent from '../EventsPage/IndividualEvent';
-import AddEventRsvp from '../Rsvps/AddEventRsvp';
+
 import {getEvents} from '../../store/event'
 import{getUserRsvps} from '../../store/rsvp'
 import { getUsersBuddies} from "../../store/bublcat-buddies"
-import{ getUsers} from '../../store/user'
+
+
 
  const  SplashPage = () =>{
     const dispatch = useDispatch()
@@ -30,9 +31,9 @@ import{ getUsers} from '../../store/user'
 
 
     useEffect(()=>{
-        dispatch(getUserRsvps(sessionUser.id))
+        dispatch(getUserRsvps(sessionUser?.id))
         dispatch(getEvents())
-        dispatch(getUsersBuddies(sessionUser.id))
+        dispatch(getUsersBuddies(sessionUser?.id))
 
 
 
@@ -42,65 +43,28 @@ import{ getUsers} from '../../store/user'
 
 
   let userEvents
-
-
-
     events?.map((event  =>{
-        // if(rsvpEvents.includes(event.id)){
-
-            userEvents=(
-
-                <ul>
-                   <IndividualEvent event={event}/>
-
-                </ul>
+        userEvents=(
+            <ul>
+                <IndividualEvent event={event}/>
+            </ul>
             )
-
-
-    } ))
-
-
-
-
-//   events?.map(event =>{
-//     if(event?.confirmed === false){
-//         interested =(
-
-//         <>
-//         <p>
-//             You are currently interested in this event
-
-//         </p>
-//         <p>
-//             CONFIRM TO GOING
-//             <AddEventRsvp/>
-//         </p>
-//         </>)
-//     }
-
-
-
-//   })
-
-
-
+        }
+    ))
 
     let userProfile
-
         userProfile =(
             <section className="userProf">
             <h1>HELLO {loggedInUser?.firstName}! </h1>
             <img src={loggedInUser?.profileImgUrl} style={{maxWidth:300}}></img>
             <span>
-
             </span>
             </section>
         )
 
         if(sessionUser){
         return(
-
-        <>
+        <div className="splashCont">
            {userProfile}
 
         <section className="eventsSect">
@@ -119,16 +83,12 @@ import{ getUsers} from '../../store/user'
             }
         }))}
         </section>
-
+        
         <section className="buddySect">
         <h3> {`${loggedInUser?.firstName}'s Bublcat Buddies` }</h3>
         {users?.map((user =>{
-
             if(userBuddies.includes(user.id)){
-
                 return(
-
-
             <ul key={user.id}>
                 <li>
                 <img className="imgTile" src={user.profileImgUrl} alt="user tile" style={{width:250}}/>
@@ -137,16 +97,11 @@ import{ getUsers} from '../../store/user'
                 </span>
                 </li>
             </ul>
-
                 )
             }
-
         }))}
         </section>
-
-
-        </>
-
+        </div>
     ) }else{
         return(
 

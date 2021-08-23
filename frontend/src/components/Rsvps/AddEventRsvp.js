@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux"
 
 import { getEventRsvps , addEventRsvp} from "../../store/rsvp"
 
-import "./AddEventRsvp.css"
+import"./Rsvp.css"
 
 const AddEventRsvp = ({eventId}) =>{
     const dispatch = useDispatch()
@@ -46,12 +46,12 @@ const AddEventRsvp = ({eventId}) =>{
      }else{
          return(
          <div >
-                        <h1 className="header">RSVP TO THIS EVENT</h1>
+                        <h2 style={{color:"rgb(69, 22, 106)" , textAlign:"center"}}>RSVP TO THIS EVENT</h2>
                             <form
                             onSubmit={handleSubmit}
-                            style={{width:350 ,backgroundColor:"red"}}
+                            className="rsvpForm"
                             >
-
+                                <span className="radio">
                                     <label>
                                         Interested
 
@@ -76,7 +76,12 @@ const AddEventRsvp = ({eventId}) =>{
                                         checked = {confirmed === true}
                                         />
                                     </label>
-                                    <button type="submit">
+                                        </span>
+                                    <br/>
+                                    <button
+                                    style={{height:"fit-content", marginTop:10}}
+                                    className="formBttn"
+                                    type="submit">
                                         RSVP TO THIS EVENT
                                         </button>
 
