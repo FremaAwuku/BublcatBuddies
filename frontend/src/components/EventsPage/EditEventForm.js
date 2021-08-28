@@ -217,7 +217,7 @@ return(
         </button>
 
         </form>
-        <DeleteEvent   event={event}/>
+        <DeleteEvent   eventId={eventId}/>
     </section>
 )
 

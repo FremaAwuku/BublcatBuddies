@@ -3,13 +3,14 @@ import { useHistory } from "react-router-dom"
 import { deleteEvent } from "../../store/event"
 
 import './AddEventForm.css'
-const DeleteEvent = ({event}) =>{
+const DeleteEvent = ({eventId}) =>{
 const dispatch = useDispatch()
 const history = useHistory()
     const handleSubmit = async (e) =>{
         e.preventDefault()
+        console.log(eventId)
+        dispatch(deleteEvent(eventId))
 
-        dispatch(deleteEvent(event?.eventId))
 
             history.push(`/events`)
 
@@ -21,6 +22,7 @@ const history = useHistory()
         <form
         id="delete"
         onSubmit={handleSubmit}>
+
         <button
         className="formBttn"
         type="submit "

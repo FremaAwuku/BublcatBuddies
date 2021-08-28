@@ -138,12 +138,13 @@ router.post(
         "/:id(\\d+)",
         requireAuth,
         asyncHandler(async(req,res)=>{
-        const eventId = req.params.id
+        const {eventId }= req.body
+        console.log(eventId, `<---routes`)
 
         const event = await db.Event.findByPk(eventId)
 
         await event.destroy();
-        return res.json({})
+        return res.json({eventId:event.id})
         })
     )
 
