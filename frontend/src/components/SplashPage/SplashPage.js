@@ -66,6 +66,7 @@ import "./SplashPage.css"
            {userProfile}
 
         <section className="eventSect">
+        <h2> {`${loggedInUser?.firstName}'s Events` }</h2>
             {events?.map((event  =>{
 
             if(rsvpEvents.includes(event.id)){
@@ -87,7 +88,16 @@ import "./SplashPage.css"
         {users?.map((user =>{
             if(userBuddies.includes(user.id)){
                 return(
-            <UserTile id="splash" user={user} style={{width:200 ,height:200}}/>
+                    <div className="splashTile" >
+                    <img className="imgTile" src={user.profileImgUrl} alt="user tile" style={{width:200}}/>
+                    <div className="userDetails" >
+                        <span id="userDeets" style={{paddingTop:0}}>
+                        <h3>{user.username}</h3>
+
+                        </span>
+
+                    </div>
+                </div>
                 )
             }
         }))}

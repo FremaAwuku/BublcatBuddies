@@ -1,6 +1,6 @@
 .splashCont{
     display: flex;
-    flex-wrap: row wrap;
+    flex-wrap: column ;
     position: relative;
     width: fit-content;
 
