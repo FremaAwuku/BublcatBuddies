@@ -98,8 +98,9 @@ export const deleteRsvp = (payload) => async dispatch => {
       });
       if(response.ok){
         const deletedRsvp = await response.json({})
+        console.log(deletedRsvp)
         const rsvpId = deletedRsvp.rsvpId
-        
+
         dispatch(remove(rsvpId))
 }
 }

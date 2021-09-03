@@ -57,6 +57,7 @@ import "./SplashPage.css"
             <section className="userProf">
             <h1>HELLO {loggedInUser?.firstName}! </h1>
             <img src={loggedInUser?.profileImgUrl} style={{maxWidth:300}}></img>
+            <h2>{loggedInUser?.username}</h2>
             </section>
         )
 
@@ -66,13 +67,23 @@ import "./SplashPage.css"
            {userProfile}
 
         <section className="eventSect">
-        <h2> {`${loggedInUser?.firstName}'s Events` }</h2>
+        <h2> {`RSVPed Events` }</h2>
             {events?.map((event  =>{
 
             if(rsvpEvents.includes(event.id)){
-                return(
+                let interest
+                let rsvped
+                if(event.confirmed){
+                    rsvped=(<h5>You have RSVPed to this event</h5>)
+                }else{
+                    rsvped=(<h5>You are Interested in this event</h5>)
+                }
 
+                return(
+                    <>
                     <IndividualEvent event={event}/>
+                    {rsvped}
+                    </>
                 )
             }else{
                 return(
@@ -84,7 +95,7 @@ import "./SplashPage.css"
         </section>
 
         <section className="buddySect">
-        <h2> {`${loggedInUser?.firstName}'s Bublcat Buddies` }</h2>
+        <h2>Bublcat Buddies</h2>
         {users?.map((user =>{
             if(userBuddies.includes(user.id)){
                 return(

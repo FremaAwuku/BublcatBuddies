@@ -14,6 +14,7 @@
 .eventSect{
     /* display: grid;
     grid-area: eve; */
+    overflow: scroll;
 }
 .buddySect{
     padding: 20px;

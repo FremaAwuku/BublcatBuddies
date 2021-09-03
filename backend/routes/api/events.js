@@ -208,11 +208,11 @@ router.delete(
     "/:id(\\d+)/rsvps",
      requireAuth,
     asyncHandler(async(req,res)=>{
-        const {
+        let {
             eventId,
             userId,
         }= req.body
-
+        eventId = Number(eventId)
         const rsvp = await db.Rsvp.findOne({where:{eventId, userId}})
 
         await db.Rsvp.destroy({where:{eventId, userId}})
