@@ -94,6 +94,7 @@ User.associate = function(models) {
    User.belongsToMany(models.User,{as: 'buddies', through:'BublcatBuddies',foreignKey:'userId', otherKey:'buddyId'})
    User.hasMany(models.Event,{foreignKey:'hostId'})
    User.belongsToMany(models.Event,{ through:'Rsvps',foreignKey:'userId', otherKey:'eventId'})
+   User.hasMany(models.Comment,{foreignKey:'userId'})
   };
   return User;
 };

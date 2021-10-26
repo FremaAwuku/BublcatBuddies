@@ -1,0 +1,2 @@
+Comment
+npx sequelize-cli model:generate --name Comment --attributes content:string,eventId:integer,userId:integer

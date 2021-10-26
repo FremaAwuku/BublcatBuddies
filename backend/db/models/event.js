@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     Event.belongsTo(models.User,{foreignKey:'hostId'})
     Event.belongsToMany(models.User,{ through:models.Rsvp ,foreignKey:'eventId', otherKey:'userId'})
     Event.hasMany(models.Rsvp,{as:'reservations',foreignKey:'eventId', onDelete:'cascade', hooks:true})
+    Event.hasMany(models.Comment,{foreignKey:'eventId', onDelete:'cascade', hooks:true})
   };
   return Event;
 };
