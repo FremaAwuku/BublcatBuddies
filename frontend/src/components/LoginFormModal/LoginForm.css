@@ -1,12 +1,12 @@
 .formTempForm  {
     box-sizing: border-box;
-    background: rgba(69, 23, 105, 0.15);
+    background: rgb(255, 255, 255);
     border-radius: 20px;
     border-left: 1px solid rgba(145, 111, 145, 0.295);
     border-top: 1px solid rgba(255,255,255,0.3);
     backdrop-filter: blur(10px);
     box-shadow: 20px 20px 40px -6px rgba(205, 53, 219, 0.2);
-
+    padding: 15px;
 width: auto;
   }
   .formTempBtn{
@@ -35,4 +35,3 @@ width: auto;
     line-height: 25px;
 
 }
-

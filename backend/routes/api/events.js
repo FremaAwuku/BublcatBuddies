@@ -139,7 +139,7 @@ router.post(
         requireAuth,
         asyncHandler(async(req,res)=>{
         const {eventId }= req.body
-        console.log(eventId, `<---routes`)
+
 
         const event = await db.Event.findByPk(eventId)
 
@@ -220,6 +220,41 @@ router.delete(
     return res.json({rsvpId:rsvp.id})
     })
 )
+
+//    COMMENTS
+    // GET to all event's comments
+    router.get(
+        "/:id(\\d+)/comments",
+        asyncHandler(async(req,res)=>{
+
+            const comments = await db.Comment.findAll({where:{eventId:req.params.id}})
+            return res.json(comments)
+
+        })
+    )
+
+    router.post(
+        "/:id(\\d+)/comment",
+         requireAuth ,
+        asyncHandler(async(req,res)=>{
+
+
+                const {
+                    eventId,
+                    userId,
+                    content
+                }= req.body
+
+
+                    const comment = await db.Comment.create({eventId,userId,content})
+
+                        comment.save()
+                        return res.json(comment)
+            }
+    )
+    )
+
+
 
 
 module.exports = router;

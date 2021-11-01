@@ -1,14 +1,14 @@
 
 import {  useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { getUsers } from '../../store/user';
 import UserTile from './UserTile';
 import "./buddiesSect.css"
 const BublcatBuddies = () =>{
     const dispatch = useDispatch()
-
+    const history = useHistory()
     const users = useSelector(state => Object.values(state.users))
     const sessionUserId = useSelector(state => state.session?.user?.id)
      users.splice(sessionUserId -1,1)
@@ -18,7 +18,9 @@ const BublcatBuddies = () =>{
     },[dispatch])
 
 
-
+if(!sessionUserId){
+    history.push("/events")
+}else{
 return(
 <div className="outerCont">
     <div className="userContainer">
@@ -53,6 +55,6 @@ return(
 </div>)
 
 
-}
+}}
 
  export default BublcatBuddies

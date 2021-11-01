@@ -39,12 +39,12 @@ const validateSignup = [
 //GETS ALL USERS
 //used in user search
 router.get('/',
-requireAuth,
 asyncHandler(async (req, res) => {
   const users = await User.findAll()
   return res.json(users)
 }
 ))
+
 router.get('/:id(\\d+)',
 
 requireAuth,

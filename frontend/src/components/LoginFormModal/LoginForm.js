@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
@@ -9,6 +9,12 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  useEffect(()=>{
+    let e = []
+    if(credential.length <1){
+      e.push()
+    }
+  },[])
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);

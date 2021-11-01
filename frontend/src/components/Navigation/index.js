@@ -9,10 +9,27 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session?.user);
 
   let sessionLinks;
+  let homeIcon
+  let buddyShow
+
   if (sessionUser) {
     sessionLinks = (
       <ProfileButton user={sessionUser} />
     );
+
+    homeIcon=(
+      <li>
+      <NavLink exact to="/" className='navLink' id="home">
+      <i class="fas fa-home"></i>
+      </NavLink>
+
+    </li>
+    )
+    buddyShow=(
+      <li>
+      <NavLink to="/bublcat-buddies" className='navLink' id="buddies">FIND BUBLCAT BUDDIES</NavLink>
+    </li>
+    )
   } else {
     sessionLinks = (
       <div className="loginActions">
@@ -26,6 +43,14 @@ function Navigation({ isLoaded }){
             </button></NavLink>
       </div>
     );
+    homeIcon=(
+      <></>
+    )
+    buddyShow=(
+      <li>
+      <NavLink to="/bublcat-buddies" className='navLink' id="buddies">FIND BUBLCAT BUDDIES</NavLink>
+    </li>
+    )
   }
 
   return (
@@ -33,23 +58,16 @@ function Navigation({ isLoaded }){
     {isLoaded && sessionLinks}
       <ul className='navBar'>
 
+          {homeIcon}
 
 
 
-        <li>
-          <NavLink exact to="/" className='navLink' id="home">
-          <i class="fas fa-home"></i>
-          </NavLink>
-
-        </li>
         <br/>
-        <li>
+        <li style={{marginRight:15}}>
           <NavLink to="/events" className='navLink' id="event">EVENTS</NavLink>
         </li>
         <br/>
-        <li>
-          <NavLink to="/bublcat-buddies" className='navLink' id="buddies">FIND BUBLCAT BUDDIES</NavLink>
-        </li>
+
 
       </ul>
     </nav>
