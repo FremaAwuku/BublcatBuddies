@@ -1,1 +1,37 @@
-/* TODO Add site wide styles */
+*{
+    box-sizing: border-box;
+}
+.univ-modal-wrapper{
+    background-color: white;
+    padding: 15px;
+}
+
+.univ-modal-wrapper.comment{
+    background-color: white;
+    padding: 15px;
+    max-width: 275px;
+    min-width: 275px;
+}
+.univ-form-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.univ-form-errors{
+    padding: 2px;
+}
+.univ-form-label{
+    display: flex;
+    flex-direction: column;
+}
+.primary-button{
+    background-color: #72f4bf ;
+    box-sizing: border-box;
+    border-radius: 18px;
+
+    padding:10px;
+    width: 100%;
+    height: auto;
+   color: rgb(69, 22, 106);
+   margin-bottom: 10px;
+
+}

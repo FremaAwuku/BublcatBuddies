@@ -17,7 +17,7 @@ import { getComments } from "../../store/comment"
     const user = useSelector(state => state.session?.user)
     const comments = useSelector((state)=>Object.values(state.comments))
 
-    console.log(comments,"<<<<<<???COMMENTS")
+   
     useEffect(()=>{
         dispatch(getEventRsvps(eventId))
         dispatch(getComments(eventId))

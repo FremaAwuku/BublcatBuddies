@@ -227,7 +227,7 @@ router.delete(
         "/:id(\\d+)/comments",
         asyncHandler(async(req,res)=>{
 
-            const comments = await db.Comment.findAll({where:{eventId:req.params.id}})
+            const comments = await db.Comment.findAll({where:{eventId:req.params.id},include:{model:db.User}})
             console.log(comments,"<<<<BE COMMENTS")
             return res.json(comments)
 
