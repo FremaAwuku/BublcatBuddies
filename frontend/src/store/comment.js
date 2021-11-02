@@ -11,15 +11,15 @@ const REMOVE_COMMENT= 'comment/REMOVE_COMMENT'
 
 const load = comments=>({
         type:LOAD,
-        events
+        comments
 })
 
-const loadOne = comment =>({
+// const loadOne = comment =>({
 
-        type:LOAD_ONE,
-        comment
+//         type:LOAD_ONE,
+//         comment
 
-})
+// })
 
 const addOneComment = comment =>({
         type:ADD_COMMENT,
@@ -33,11 +33,20 @@ const remove = commentId =>({
 
 
 
-export const getComments= ({eventId}) => async dispatch =>{
+// export const getComments= () => async dispatch =>{
+//     const response = await fetch(`/api/comments`);
+
+//     if(response.ok){
+//         const comments= await response.json();
+//         dispatch(load(comments))
+//     }
+// }
+export const getComments= (eventId) => async dispatch =>{
     const response = await fetch(`/api/events/${eventId}/comments`);
 
     if(response.ok){
-        const comments= await response.json();
+        const comments= await response.json()
+        
         dispatch(load(comments))
     }
 }
@@ -96,49 +105,45 @@ export const deleteComment = (commentId) => async dispatch => {
 
       });
       if(response.ok){
-        const deletedEvent = await response.json()
-        const deletedEventId = deletedEvent.eventId
+        const deletedComment= await response.json()
+        const deletedCommentId = deletedComment.commentId
 
-        dispatch(remove(deletedEventId))
+        dispatch(remove(deletedCommentId))
 
 }
 }
 
-const eventReducer = (state= initialState, action) =>{
+const commentReducer = (state= initialState, action) =>{
         let newState
     switch(action.type){
         case LOAD:
              newState = {...state};
-            action.events.forEach(event => {
-                newState[event.id] = event
+            action.comments.forEach(comment => {
+                newState[comment.id] = comment
+                console.log(comment,"<<<<REDUCER")
             })
             return newState
 
-        case LOAD_ONE:
-             newState = {...state};
-            newState[action.event.id] = action.event
-          return newState
+        case ADD_COMMENT:
 
-        case ADD_EVENT:
-
-            if(!state[action.event.id]){
+            if(!state[action.comment.id]){
                  newState ={
                     ...state,
-                    [action.event.id]: action.event
+                    [action.comment.id]: action.comment
                 }
                 return newState
             }else
             return {
                 ...state,
-                [action.event.id]:{
-                    ...state[action.event.id],
-                    ...action.event
+                [action.comment.id]:{
+                    ...state[action.comment.id],
+                    ...action.comment
                 }
             }
 
-        case REMOVE_EVENT:
+        case REMOVE_COMMENT:
              newState = {...state};
-            delete newState[action.eventId]
+            delete newState[action.commentId]
             return newState
 
         default:
@@ -146,4 +151,4 @@ const eventReducer = (state= initialState, action) =>{
     }
 }
 
-export default eventReducer
+export default commentReducer

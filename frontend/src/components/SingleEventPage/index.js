@@ -3,10 +3,11 @@ import { useSelector,useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import RsvpsOnEvents from "../Rsvps/RsvpsOnEvents"
 import IndividualEvent from "../EventsPage/IndividualEvent"
-
+import Comments from "../EventsPage/Comments/Comments"
 import { useEffect } from "react"
 import { getEventRsvps } from "../../store/rsvp"
 import "./SingleEvent.css"
+import { getComments } from "../../store/comment"
  const SingleEventPage = () =>{
 
     const dispatch = useDispatch()
@@ -14,9 +15,12 @@ import "./SingleEvent.css"
     const eventId = useParams().eventId
     const event= useSelector(state =>state.events[eventId])
     const user = useSelector(state => state.session?.user)
+    const comments = useSelector((state)=>Object.values(state.comments))
 
+    console.log(comments,"<<<<<<???COMMENTS")
     useEffect(()=>{
         dispatch(getEventRsvps(eventId))
+        dispatch(getComments(eventId))
 
     },[eventId, dispatch])
 
@@ -45,31 +49,36 @@ let privateEvent
     }
 
 return(
-<>
+<div className="single-event-page">
 
 <div
 
 className="indEventSect">
 
-    <div
+    {/* <div
     className="eventTile"
-   >
+   > */}
        <IndividualEvent event={event}/>
-       </div>
+       {/* </div> */}
 
-<div
-className="rsvpTile"
->
-<RsvpsOnEvents eventId ={eventId}/>
-{editButton}
-</div>
+ <div
+    className="details-sect"
+   >
+    <section
+    className="rsvpTile"
+    >
+    <RsvpsOnEvents eventId ={eventId}/>
+    {editButton}
+    </section>
 
 
+
+    <section className="comments-sect">
+        <Comments eventId={eventId}/>
+    </section>
     </div>
-
-
-
-</>
+</div>
+</div>
 )
 
  }

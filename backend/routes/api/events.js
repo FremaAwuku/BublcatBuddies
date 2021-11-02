@@ -228,6 +228,7 @@ router.delete(
         asyncHandler(async(req,res)=>{
 
             const comments = await db.Comment.findAll({where:{eventId:req.params.id}})
+            console.log(comments,"<<<<BE COMMENTS")
             return res.json(comments)
 
         })
@@ -237,14 +238,16 @@ router.delete(
         "/:id(\\d+)/comments",
          requireAuth ,
         asyncHandler(async(req,res)=>{
-
+            const eventId = req.params.id
 
                 const {
-                    eventId,
                     userId,
                     content
                 }= req.body
 
+                // console.log(eventId,"<<<<<Event ID")
+                // console.log(req.body,"<<<<<REQ")
+                // console.log(content,"<<<<<Content")
 
                     const comment = await db.Comment.create({eventId,userId,content})
 

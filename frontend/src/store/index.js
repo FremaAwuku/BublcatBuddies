@@ -6,6 +6,7 @@ import eventReducer from './event'
 import rsvpReducer from './rsvp'
 import buddyReducer from './bublcat-buddies'
 import userReducer from './user';
+import commentReducer from './comment';
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   events:eventReducer,
   rsvps:rsvpReducer,
   buddies: buddyReducer,
-  users: userReducer
+  users: userReducer,
+  comments:commentReducer
 });
 
 let enhancer;

@@ -12,35 +12,41 @@ const commentValidators =[
     .exists({ checkFalsy: true })
     .withMessage('Event Name Can Not Be Empty')
 ]
-
+// router.get('/',
+// asyncHandler(async(req,res)=>{
+//     const comments = await db.Comment.findAll()
+//     console.log(comments,"<<<<<back end comments")
+//     return res.json(comments)
+// }))
 router.put(
     "/:id(\\d+)",
-    requireAuth,
-    commentValidators,
-    handleValidationErrors,
+    // requireAuth,
+    // commentValidators,
+    // handleValidationErrors,
     asyncHandler(async(req,res)=>{
         const commentId = req.params.id
         const{
             content
         }=req.body
 
-        const comment = await db.Comment.findByPK(commentId)
-        comment.update({
+
+        const comment = await db.Comment.findByPk(commentId)
+        await comment.update({
             content
         })
 
-        const validationErrors = validationResult(req)
-        if(validationErrors.isEmpty()){
+        // const validationErrors = validationResult(req)
+        // if(validationErrors.isEmpty()){
             await comment.save()
             return res.json(comment)
-        }
+        // }
 
     }
 ))
 
 router.delete(
     "/:id(\\d+)",
-    requireAuth,
+    // requireAuth,
     asyncHandler(async(req,res)=>{
     const {commentId }= req.body
 
