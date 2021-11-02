@@ -47,28 +47,26 @@ function Navigation({ isLoaded }){
       <></>
     )
     buddyShow=(
-      <li>
-      <NavLink to="/bublcat-buddies" className='navLink' id="buddies">FIND BUBLCAT BUDDIES</NavLink>
-    </li>
+     <></>
     )
   }
 
   return (
     <nav className="navBarCont">
     {isLoaded && sessionLinks}
-      <ul className='navBar'>
+      <ul className='navBar'
+      style={{marginRight:15}}>
 
           {homeIcon}
 
 
 
         <br/>
-        <li style={{marginRight:15}}>
+        <li >
           <NavLink to="/events" className='navLink' id="event">EVENTS</NavLink>
         </li>
         <br/>
-
-
+        {buddyShow}
       </ul>
     </nav>
   );

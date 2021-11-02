@@ -9,7 +9,7 @@ const AddEventRsvp = ({eventId}) =>{
     const dispatch = useDispatch()
 
     const userId = useSelector(state => state.session?.user?.id)
-    const userRsvps = useSelector(state =>Object.values(state.rsvps))
+    const userRsvps = useSelector(state => Object.values(state.rsvps))
 
     const [confirmed, setConfirmed] = useState(false)
 
@@ -37,13 +37,13 @@ const AddEventRsvp = ({eventId}) =>{
 
 
 
-     if(userRsvps.find(user => userId === user.id)){
+    //  if(userRsvps.find(user => userId === user.id)){
 
-        return(
-            <>
-            </>
-        )
-     }else{
+    //     return(
+    //         <>
+    //         </>
+    //     )
+    //  }else{
          return(
          <div >
                         <h2 style={{color:"rgb(69, 22, 106)" , textAlign:"center"}}>RSVP TO THIS EVENT</h2>
@@ -95,7 +95,7 @@ const AddEventRsvp = ({eventId}) =>{
     //if rsvp at the user id is includes then
     //show nothing but if it does show add rsvp
     //
-}
+// }
 
 
 export default AddEventRsvp

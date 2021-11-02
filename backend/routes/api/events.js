@@ -234,7 +234,7 @@ router.delete(
     )
 
     router.post(
-        "/:id(\\d+)/comment",
+        "/:id(\\d+)/comments",
          requireAuth ,
         asyncHandler(async(req,res)=>{
 

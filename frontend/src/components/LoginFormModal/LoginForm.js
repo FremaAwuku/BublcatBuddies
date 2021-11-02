@@ -25,6 +25,11 @@ function LoginForm() {
       }
     );
   };
+  const loginDemo = () =>{
+
+   return dispatch(sessionActions.login({credential:"demo@user.io",password:"password"}))
+
+  }
 
   return (
     <form
@@ -60,6 +65,15 @@ function LoginForm() {
       type="submit">
       <i class="fas fa-user"></i>
           Log In</button>
+          <button
+           onClick={loginDemo}
+          style={{marginTop:10}}
+          className="formTempBtn">
+            Demo
+
+
+
+          </button>
     </form>
   );
 }

@@ -7,12 +7,16 @@ import"./Rsvp.css"
 const RsvpsOnEvents =  ({eventId})  =>{
 
 const rsvps = useSelector(state =>Object.values(state.rsvps))
+// .filter((rsvp)=>rsvp.eventId === eventId)
+
 const rsvpedUser = useSelector(state =>Object.values(state.rsvps)).map(rsvp=> rsvp=rsvp.userId)
+
 const confirmed = useSelector(state =>Object.values(state.rsvps)).filter(rsvp => rsvp.confirmed)
 const interested = (rsvps.length - confirmed.length)
 const dispatch = useDispatch()
 const users = useSelector(state =>Object.values(state.users))
 const sessionUser = useSelector(state=>state.session?.user)
+console.log(sessionUser.id,"<<<<<USER ")
  useEffect(()=>{
 
 dispatch(getEventRsvps(eventId))
@@ -35,6 +39,7 @@ if(rsvpedUser.includes(sessionUser?.id)){
     <span className="rsvpAct">
     <AddEventRsvp eventId={eventId}/>
     </span>
+    // <>help</>
     )
 }
 
