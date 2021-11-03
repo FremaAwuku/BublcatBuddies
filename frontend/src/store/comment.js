@@ -46,7 +46,7 @@ export const getComments= (eventId) => async dispatch =>{
 
     if(response.ok){
         const comments= await response.json()
-        
+
         dispatch(load(comments))
     }
 }
@@ -96,7 +96,7 @@ export const editComment = (payload) => async dispatch => {
 }
 }
 export const deleteComment = (commentId) => async dispatch => {
-        const commentId= Number(commentId)
+       
         const data = {commentId}
 
     const response = await csrfFetch(`/api/comments/${commentId}`, {

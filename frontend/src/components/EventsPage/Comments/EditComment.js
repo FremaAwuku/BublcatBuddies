@@ -1,15 +1,15 @@
 import { useSelector,useDispatch } from "react-redux"
 import { getComments, editComment } from "../../../store/comment"
 import { useState, useEffect } from "react"
-const EditComment =({showEdit , setShowEdit, commentId})=>{
+const EditComment =({showEdit , setShowEdit, commentId, eventId})=>{
 
     const dispatch = useDispatch()
     const comments = useSelector(state=> state.comments)
-    const [content,setContent]= useState(comments[commentId].content)
+    const [content,setContent]= useState(comments[commentId]?.content)
 
       const [validationErrors,setValidationErrors] = useState([])
       useEffect(()=>{
-        dispatch(getComments())
+         dispatch(getComments(eventId))
         const errors = []
         if(content === ''){
 

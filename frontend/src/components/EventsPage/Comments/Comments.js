@@ -6,6 +6,7 @@ import "./Comments.css"
 import moment from 'moment'
 import { useState,  } from "react"
 import EditComment from "./EditComment"
+import DeleteComment from "./DeleteComment"
 
 const Comments = ({eventId}) =>{
 const dispatch = useDispatch()
@@ -42,8 +43,10 @@ const [showEdit, setShowEdit] = useState(false)
        {comments.map(comment =>{
 
         const formattedDate = moment(comment.createdAt).format("MMMM Do YYYY")
+
         let editButton
-        if(user.id === comment.User.id){
+        var deleteButton
+        if(user?.id === comment?.User?.id){
             editButton=(
 
                <button
@@ -52,8 +55,14 @@ const [showEdit, setShowEdit] = useState(false)
                 >edit</button>
 
                 )
+                deleteButton=(
+                   <DeleteComment commentId={comment?.id}/>
+                )
         }else{
             editButton=(
+                <></>
+            )
+            deleteButton=(
                 <></>
             )
         }
@@ -75,11 +84,13 @@ const [showEdit, setShowEdit] = useState(false)
                     >
                         {comment.content}
                     </p>
-                    <EditComment showEdit={showEdit} setShowEdit={setShowEdit} commentId={comment.id}/>
-                    <div className="comments-info">
+                    <EditComment showEdit={showEdit} setShowEdit={setShowEdit} commentId={comment.id} eventId={eventId}/>
 
+                    <div className="comments-extra">
+                    <div className="comments-action">
                     {editButton}
-
+                    {deleteButton}
+                    </div>
                     <h6>
                     {formattedDate}
                     </h6>
