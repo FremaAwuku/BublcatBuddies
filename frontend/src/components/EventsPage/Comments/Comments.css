@@ -30,4 +30,14 @@ font-size: 10pt;
 color: seagreen;
 padding: 20px;
 margin-left: 10px;
+min-width: 350px;
+min-height: 75px;
+}.close-edit{
+    text-align: right;
+}
+.edit-form{
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+
 }

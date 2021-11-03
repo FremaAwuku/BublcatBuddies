@@ -4,12 +4,16 @@ import { getComments } from "../../../store/comment"
 import AddCommentModal from "../Comments/AddCommentModal/index"
 import "./Comments.css"
 import moment from 'moment'
+import { useState,  } from "react"
+import EditComment from "./EditComment"
 
 const Comments = ({eventId}) =>{
 const dispatch = useDispatch()
 const history = useHistory()
+const user = useSelector(state => state.session.user)
 const comments = useSelector((state)=>Object.values(state.comments)).reverse()
-console.log(comments,"comments")
+const [showEdit, setShowEdit] = useState(false)
+
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -17,9 +21,18 @@ console.log(comments,"comments")
         await dispatch(getComments())
 
 
+    }
 
+
+    const editShow =()=>{
+        if(showEdit){
+            setShowEdit(false)
+        }else{
+            setShowEdit(true)
+        }
 
     }
+
 
     return (
 
@@ -29,7 +42,21 @@ console.log(comments,"comments")
        {comments.map(comment =>{
 
         const formattedDate = moment(comment.createdAt).format("MMMM Do YYYY")
+        let editButton
+        if(user.id === comment.User.id){
+            editButton=(
 
+               <button
+               hidden={showEdit}
+                onClick={editShow}
+                >edit</button>
+
+                )
+        }else{
+            editButton=(
+                <></>
+            )
+        }
        return(
            <div className="indv-comment">
                <div className="comment-user">
@@ -43,12 +70,20 @@ console.log(comments,"comments")
                    </p>
                </div>
                <div className="comment-content">
-                    <p>
+                    <p
+                    hidden={showEdit}
+                    >
                         {comment.content}
                     </p>
+                    <EditComment showEdit={showEdit} setShowEdit={setShowEdit} commentId={comment.id}/>
+                    <div className="comments-info">
+
+                    {editButton}
+
                     <h6>
                     {formattedDate}
                     </h6>
+                    </div>
                </div>
 
            </div>
