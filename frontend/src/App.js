@@ -18,6 +18,7 @@ import SplashPage from "./components/SplashPage";
 import { getUsers } from "./store/user";
 import { getUsersBuddies} from "./store/bublcat-buddies"
 import BublcatBuddies from "./components/BublcatBuddies/BublcatBuddies";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
   const userId = useSelector(state => state.session?.user?.id)
@@ -63,6 +64,10 @@ function App() {
             </Route>
             <Route path="/bublcat-buddies">
               <BublcatBuddies/>
+
+            </Route>
+            <Route path="/users/:userId">
+              <UserProfile/>
 
             </Route>
           </Switch>

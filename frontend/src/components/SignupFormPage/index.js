@@ -29,7 +29,7 @@ function SignupFormPage() {
     setErrors(errorArr)
 
   },[email,username,firstName])
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`}/>;
 
 
   const handleSubmit = (e) => {

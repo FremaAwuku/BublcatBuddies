@@ -25,6 +25,17 @@ const [showEdit, setShowEdit] = useState(false)
 
     }
 
+    let addComment
+    if(user){
+        let addComment =(
+        <AddCommentModal eventId={eventId}/>
+        )
+    }else{
+        let addComment =(
+            <>
+            </>
+        )
+    }
 
     return (
 
@@ -92,7 +103,7 @@ const [showEdit, setShowEdit] = useState(false)
        )})}
        </div>
 
-        <AddCommentModal eventId={eventId}/>
+        {addComment}
         </>
     )
 

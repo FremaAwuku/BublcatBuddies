@@ -16,7 +16,7 @@ const interested = (rsvps.length - confirmed.length)
 const dispatch = useDispatch()
 const users = useSelector(state =>Object.values(state.users))
 const sessionUser = useSelector(state=>state.session?.user)
-console.log(sessionUser.id,"<<<<<USER ")
+
  useEffect(()=>{
 
 dispatch(getEventRsvps(eventId))

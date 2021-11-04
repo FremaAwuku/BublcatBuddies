@@ -19,7 +19,7 @@ function Navigation({ isLoaded }){
 
     homeIcon=(
       <li>
-      <NavLink exact to="/" className='navLink' id="home">
+      <NavLink exact to={`/users/${sessionUser.id}`}className='navLink' id="home">
       <i class="fas fa-home"></i>
       </NavLink>
 
