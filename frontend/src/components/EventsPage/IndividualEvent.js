@@ -1,10 +1,11 @@
 
 import {Link} from "react-router-dom"
 import "./EventsTile.css"
-
+import moment from 'moment'
 
 const IndividualEvent = ({event})=> {
 
+const formattedDate = moment(event.eventDate).format("MMMM Do YYYY")
 
 //TODO Make only public events seen
     // if(!event.isPrivate){
@@ -27,7 +28,7 @@ const IndividualEvent = ({event})=> {
             <br></br>
             <p id="addy">{event.address}</p>
 
-            <p id="date">{event.eventDate}</p>
+            <p id="date">{formattedDate}</p>
             </div>
 
             </span>

@@ -16,15 +16,6 @@ const comments = useSelector((state)=>Object.values(state.comments)).reverse()
 const [showEdit, setShowEdit] = useState(false)
 
 
-    const handleSubmit = async (e) =>{
-        e.preventDefault()
-
-        await dispatch(getComments())
-
-
-    }
-
-
     const editShow =()=>{
         if(showEdit){
             setShowEdit(false)
