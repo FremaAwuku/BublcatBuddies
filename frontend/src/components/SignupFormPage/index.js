@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-
+import emailRegex from "email-regex"
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
@@ -13,21 +13,38 @@ function SignupFormPage() {
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [profileImgUrl, setProfileImgUrl] = useState("")
-  const [errors, setErrors] = useState([]);
 
+  const [errors, setErrors] = useState([]);
+  useEffect(()=>{
+    const errorArr = []
+    if(!emailRegex({exact:true}).test(email)){
+      errorArr.push("Please Enter Valid Email")
+    }
+    if(username.length < 3){
+      errorArr.push("Username must be longer than 3 characters")
+    }
+    if(firstName.length < 3){
+      errorArr.push("First Name must be longer than 3 characters")
+    }
+    setErrors(errorArr)
+
+  },[email,username,firstName])
   if (sessionUser) return <Redirect to="/" />;
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ firstName, email, username, password, profileImgUrl }))
+      return dispatch(sessionActions.signup({ firstName, email, username, password}))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
+
     }
+
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
@@ -91,7 +108,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <label className="formTempLabel">
+      {/* <label className="formTempLabel">
         Profile Image URL
         <input
         className="formTempInput"
@@ -100,7 +117,7 @@ function SignupFormPage() {
           onChange={(e) => setProfileImgUrl(e.target.value)}
           required
         />
-      </label>
+      </label> */}
       <button
       className="formTempBtn"
       id="signUp"

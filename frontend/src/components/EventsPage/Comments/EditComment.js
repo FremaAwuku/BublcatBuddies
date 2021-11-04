@@ -45,7 +45,7 @@ const EditComment =({showEdit , setShowEdit, commentId, eventId})=>{
 
     return(
     <>
-    {showEdit&&
+
     <form
     onSubmit={handleEdit}
     className="edit-form">
@@ -65,7 +65,7 @@ const EditComment =({showEdit , setShowEdit, commentId, eventId})=>{
        disabled={validationErrors.length>0}>
            Save
        </button>
-        </form>}
+        </form>
         </>
     )
 }

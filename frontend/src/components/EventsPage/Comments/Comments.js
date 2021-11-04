@@ -75,7 +75,7 @@ const [showEdit, setShowEdit] = useState(false)
                     >
                         {comment.content}
                     </p>
-                    <EditComment showEdit={showEdit} setShowEdit={setShowEdit} commentId={comment.id} eventId={eventId}/>
+                    {showEdit&&<EditComment showEdit={showEdit} setShowEdit={setShowEdit} commentId={comment.id} eventId={eventId}/>}
 
                     <div className="comments-extra">
                     <div className="comments-action">

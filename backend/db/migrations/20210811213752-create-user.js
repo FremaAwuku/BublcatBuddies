@@ -28,7 +28,6 @@ module.exports = {
         allowNull: false,
       },
       profileImgUrl: {
-        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {

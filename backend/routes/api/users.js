@@ -30,9 +30,7 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 2 })
     .withMessage('Please provide a First Name with at least 2 characters.'),
-    check('profileImgUrl')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a Profile Image URL.'),
+
   handleValidationErrors,
 ];
 
