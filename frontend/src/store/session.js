@@ -26,22 +26,22 @@ const removeUser = () => {
   };
 };
 
-export  const getUsers = (users) => async (dispatch) =>{
-  const response = await csrfFetch(`/api/users`);
+// export  const getUsers = (users) => async (dispatch) =>{
+//   const response = await csrfFetch(`/api/users`);
 
-  if(response.ok){
-      const users = await response.json();
-      dispatch(load(users))
-  }
-}
-export const getOneUser = (userId) => async dispatch =>{
-  const response = await csrfFetch(`/api/users/${userId}`)
+//   if(response.ok){
+//       const users = await response.json();
+//       dispatch(load(users))
+//   }
+// }
+// export const getOneUser = (userId) => async dispatch =>{
+//   const response = await csrfFetch(`/api/users/${userId}`)
 
-  if(response.ok){
-      const user = await response.json()
-      dispatch(loadOne(user))
-  }
-}
+//   if(response.ok){
+//       const user = await response.json()
+//       dispatch(loadOne(user))
+//   }
+// }
 
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;
